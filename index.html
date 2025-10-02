@@ -11,15 +11,48 @@
       margin: 0;
       padding: 0;
     }
+
     header {
       background: #1a237e;
       color: white;
       padding: 2rem;
       text-align: center;
     }
+
+    
+    nav {
+      background: #0d1543;
+      padding: 0.8rem 0;
+    }
+
+    .navbar {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar li {
+      display: inline;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .navbar a:hover {
+      text-decoration: underline;
+    }
+
     section {
       padding: 2rem;
     }
+
     .project {
       background: white;
       border-radius: 8px;
@@ -27,42 +60,52 @@
       margin-bottom: 2rem;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
+
     .project h3 {
       margin-top: 0;
       color: #1a237e;
     }
+
     footer {
       background: #eee;
       text-align: center;
       padding: 1rem;
     }
+
     a {
       color: #1a237e;
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>MSU Computer Science Research Lab</h1>
     <p>Exploring AI, Robotics, and Quantum Technologies</p>
   </header>
 
-  <!-- Navigation -->
+
   <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#team">Team</a>
-    <a href="#contact">Contact</a>
+    <ul class="navbar">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
 
-  <section>
+ 
+  <section id="about">
     <h2>About Our Lab</h2>
     <p>We are a student-led research lab at Morgan State University working on exciting projects in artificial intelligence, human-robot interaction, and quantum computing.</p>
+  </section>
 
+  <section id="projects">
     <h2>Research Projects</h2>
 
     <div class="project">
@@ -76,7 +119,7 @@
       <h3>MSU CS Navigator</h3>
       <p><strong>By:</strong> Sakina Shrestha</p>
       <p>This RAG chatbot is designed to assist students with common questions related to the Morgan State CS Department. Built with FastAPI, Pinecone, and OpenAI, it’s deployed on AWS and integrates into the NAO robot for voice support.</p>
-      <p><a href="https://github.com/Sakinastha/cs-chatbot" target="_blank">View GitHub Repositor →</a></p>
+      <p><a href="https://github.com/Sakinastha/cs-chatbot" target="_blank">View GitHub Repository →</a></p>
     </div>
 
     <div class="project">
@@ -85,7 +128,9 @@
       <p>This project uses the quED and quCR experimental setup to explore quantum entanglement, measure polarization correlations of photon pairs, and analyze violations of Bell’s inequality to demonstrate quantum nonlocality.</p>
       <p><a href="https://example.com/quantum-report.pdf" target="_blank">View Report (PDF) →</a></p>
     </div>
+  </section>
 
+  <section id="team">
     <h2>Team</h2>
     <ul>
       <li><b>Dr. Paul Wang</b> – Chair and Professor of Computer Science Department</li>
@@ -93,7 +138,9 @@
       <li><b>Sakina Shrestha</b> – Research Assistant</li>
       <li><b>Julian Gordon</b> – Research Assistant</li>
     </ul>
+  </section>
 
+  <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:sashr5@morgan.edu">sashr5@morgan.edu</a></p>
     <p>Email: <a href="mailto:aashr3@morgan.edu">aashr3@morgan.edu</a></p>
@@ -103,5 +150,6 @@
   <footer>
     &copy; 2025 MSU CS Research Lab. Built by Sakina Shrestha, Aayush Shrestha, and Julian Gordon
   </footer>
+
 </body>
 </html>
