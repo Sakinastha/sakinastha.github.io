@@ -86,7 +86,7 @@
         height: 300px; 
         object-fit: cover; 
         object-position: 50% 10%;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
     
     .project {
@@ -94,13 +94,13 @@
       border-radius: 8px;
       padding: 1.5rem;
       margin-bottom: 2rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; 
     }
 
     .project:hover {
         transform: translateY(-8px); 
-        box-shadow: 0 15px 30px rgba(0,0,0,0.2); 
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); 
         cursor: pointer;
     }
 
@@ -357,7 +357,7 @@
         color: #102B4C;
         text-decoration: none;
         background-color: #f7f7f7;
-        border-radius: 6px;
+        border-radius: 66px;
         transition: background-color 0.2s, color 0.2s;
         font-weight: 500;
     }
@@ -368,10 +368,19 @@
         text-decoration: none;
     }
     
-    .contact-card li a::before {
-        content: '✉️';
-        font-size: 1.2em;
-        line-height: 1;
+    /* Removed the generic '✉️' icon CSS */
+    
+    .contact-info-block {
+        margin-bottom: 15px;
+        line-height: 1.4;
+        background-color: #f7f7f7; 
+        padding: 10px;
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .contact-info-block:hover {
+        background-color: #efefef;
     }
 
     .contact-info-item {
@@ -383,7 +392,96 @@
         display: block;
         margin-bottom: 3px;
     }
+    .contact-info-item .phone-number {
+        display: block;
+        color: #102B4C;
+        font-weight: 500;
+        text-decoration: none;
+        font-size: 0.9em;
+        margin-top: 5px; 
+    }
+    .contact-info-item .phone-number::before {
+        content: '📞';
+        margin-right: 5px;
+    }
     
+    .contact-info-block p {
+        margin: 0;
+        line-height: 1.2;
+    }
+    
+    .contact-info-block .student-details {
+        font-size: 0.9em;
+        color: #555;
+        margin-bottom: 5px;
+    }
+    
+    .contact-info-block a {
+        display: block;
+        margin-bottom: 2px;
+        color: #102B4C; 
+        font-weight: 500;
+        text-decoration: none;
+        line-height: 1.3;
+    }
+    
+    /* Added Email icon to email links */
+    .contact-info-block a[href^="mailto"]::before {
+        content: '📧';
+        margin-right: 5px;
+        font-size: 0.9em;
+    }
+
+    /* Removed duplicate phone icon generation for phone numbers */
+    
+    .contact-info-block .linkedin-icon {
+        width: 18px;
+        height: 18px;
+        transition: transform 0.2s;
+    }
+    
+    .contact-info-block .linkedin-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none; 
+        color: #061626; 
+        transition: background-color 0.2s, transform 0.2s;
+        font-size: 0.9em;
+        font-weight: bold;
+    }
+    
+    .contact-info-block .linkedin-link:hover {
+        transform: scale(1.1);
+    }
+    
+    /* CSS for single-line name/degree and alignment */
+    .contact-info-block .name-and-degree {
+        display: flex;
+        justify-content: space-between; 
+        align-items: center; 
+        margin-bottom: 5px;
+    }
+    
+    .contact-info-block .name-and-degree strong {
+        display: flex; 
+        align-items: center;
+        font-size: 1em;
+        color: #061626;
+    }
+    
+    .contact-info-block .name-and-degree .student-details {
+        margin-bottom: 0;
+        font-size: 0.85em;
+        color: #C9510C; 
+        font-weight: bold;
+        margin-left: 10px; /* Separates degree from name */
+    }
+
+    .contact-info-block .name-and-degree .linkedin-link {
+        margin-left: 15px; /* Pushes the icon to the right */
+    }
+
+
     @keyframes dropIn {
         from {
             opacity: 0;
@@ -487,13 +585,13 @@
       <ul class="link-bar" style="border-top: 1px solid #ddd; padding-top: 15px;">
           <li>
               <a href="https://github.com/theaayushstha1/Nao-OpenAI-Morgan-Assist" target="_blank">
-                  <img src="https://i.imgur.com/HDn0If1.png" alt="GitHub Logo" class="github-icon">
+                  <img src="https://imgur.com/HDn0If1.png" alt="GitHub Logo" class="github-icon">
                   Source Code
               </a>
           </li>
           <li>
               <a href="assets/images/AMAZON AWS POSTER.pdf" target="_blank">
-                  <img src="https://i.imgur.com/ziaQy9Y.jpeg" alt="NAO Robot poster icon" class="pdf-icon-poster">
+                  <img src="https://imgur.com/ziaQy9Y.jpeg" alt="NAO Robot poster icon" class="pdf-icon-poster">
                   AWS Poster (PDF)
               </a>
           </li>
@@ -546,16 +644,17 @@
       </div>
       <div class="team-member">
           <div class="team-card">
-              <img src="assets/images/sakina_headshot.jpg" alt="Photo of Sakina Shrestha" class="team-headshot">
+              <img src="https://i.imgur.com/0Dsw63j.jpg" alt="Photo of Sakina Shrestha" class="team-headshot">
               <p><b>Sakina Shrestha</b></p>
               <p>Research Assistant, Chatbot/AWS</p>
           </div>
       </div>
       <div class="team-member">
           <div class="team-card">
-              <img src="assets/images/julian_headshot.jpg" alt="Photo of Julian Gordon" class="team-headshot">
+              <img src="https://i.imgur.com/EH8Kbt8.jpg" alt="Photo of Julian Gordon" class="team-headshot">
               <p><b>Julian Gordon</b></p>
               <p>Research Assistant, Quantum/Physics</p>
+          </p>
           </div>
       </div>
     </div>
@@ -597,6 +696,41 @@
             <h3>Student Research Team</h3>
             <p>For project-specific questions, media requests, or general information on joining the lab, reach out to the student leads.</p>
             
+            <div class="contact-info-block">
+                <div class="name-and-degree">
+                    <p style="margin: 0;"><strong>Sakina Shrestha</strong></p>
+                    <p class="student-details">B.S. CS '25</p>
+                    <a href="https://www.linkedin.com/in/sakina-shrestha-474775273/" target="_blank" class="linkedin-link">
+                        <img src="https://imgur.com/pjdNOy4.png" alt="LinkedIn" class="linkedin-icon">
+                    </a>
+                </div>
+                <a href="mailto:sashr5@morgan.edu">sashr5@morgan.edu</a>
+                <a href="tel:+16673048390" class="phone-number">+1 (667) 304-8390</a>
+            </div>
+
+            <div class="contact-info-block">
+                <div class="name-and-degree">
+                    <p style="margin: 0;"><strong>Aayush Shrestha</strong></p>
+                    <p class="student-details">B.S. CS '26</p>
+                    <a href="https://www.linkedin.com/in/aayushshrestha123/" target="_blank" class="linkedin-link">
+                        <img src="https://imgur.com/pjdNOy4.png" alt="LinkedIn" class="linkedin-icon">
+                    </a>
+                </div>
+                <a href="mailto:aashr3@morgan.edu">aashr3@morgan.edu</a>
+                <a href="tel:+14105889789" class="phone-number">+1 (410) 588-9789</a>
+            </div>
+
+            <div class="contact-info-block">
+                <div class="name-and-degree">
+                    <p style="margin: 0;"><strong>Julian Gordon</strong></p>
+                    <p class="student-details">B.S. CS '27</p>
+                    <a href="https://www.linkedin.com/in/julian-gordon-938758290/" target="_blank" class="linkedin-link">
+                        <img src="https://imgur.com/pjdNOy4.png" alt="LinkedIn" class="linkedin-icon">
+                    </a>
+                </div>
+                <a href="mailto:jugor3@morgan.edu">jugor3@morgan.edu</a>
+                <a href="tel:+12402805107" class="phone-number">+1 (240) 280-5107</a>
+            </div>
             <ul>
               <li>
                 <strong>Sakina Shrestha</strong><br>
@@ -618,6 +752,7 @@
         
     </div>
 
+  </section>
  
 
   <footer>
