@@ -2,14 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Morgan State University Computer Science Research Lab</title>
   <style>
+    /* ------------------------------------------------------------------- */
+    /* 1. Base Styles & Global Setup */
+    /* ------------------------------------------------------------------- */
     body {
       font-family: Arial, sans-serif;
       background: #f4f4f4;
       color: #333;
       margin: 0;
       padding: 0;
+    }
+
+    /* Base style for all images: responsive and centered */
+    img {
+        max-width: 100%; 
+        height: auto;
+        display: block; 
     }
 
     header {
@@ -19,12 +30,14 @@
       text-align: center;
     }
 
-    
     nav {
       background: #0d1543;
       padding: 0.8rem 0;
     }
 
+    /* ------------------------------------------------------------------- */
+    /* 2. Navigation & Link Styles */
+    /* ------------------------------------------------------------------- */
     .navbar {
       list-style: none;
       display: flex;
@@ -43,27 +56,206 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 1rem;
+      transition: color 0.3s ease; /* Animation: Smooth color change */
     }
 
     .navbar a:hover {
-      text-decoration: underline;
+      color: #ffc107; /* Highlight color on hover */
+      text-decoration: none;
     }
 
+    /* ------------------------------------------------------------------- */
+    /* 3. Section Entrance Animation (CSS Keyframes) */
+    /* ------------------------------------------------------------------- */
     section {
       padding: 2rem;
+      opacity: 0; /* Start hidden for entrance effect */
+      animation: fadeInUp 0.8s ease-out forwards;
     }
 
+    /* Staggered Delay for Sections */
+    #about { animation-delay: 0.2s; }
+    #projects { animation-delay: 0.4s; }
+    #team { animation-delay: 0.6s; }
+    #contact { animation-delay: 0.8s; }
+
+
+    /* ------------------------------------------------------------------- */
+    /* 4. Image & Layout Styles */
+    /* ------------------------------------------------------------------- */
+
+    /* Hero Image Styles */
+    .hero {
+        margin-top: -32px; 
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 350px; 
+        object-fit: cover; 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    
+    /* Project Card Styles with Hover Animation */
     .project {
       background: white;
       border-radius: 8px;
       padding: 1.5rem;
       margin-bottom: 2rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      /* Animation: Smooth lift and shadow transition on hover */
+      transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; 
+    }
+
+    .project:hover {
+        transform: translateY(-8px); /* Lifts the card up */
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2); 
+        cursor: pointer;
     }
 
     .project h3 {
       margin-top: 0;
       color: #1a237e;
+    }
+
+    /* Project Media Showcase Layout (New) */
+    .media-showcase {
+        display: flex;
+        flex-direction: column; /* Stacks items vertically on mobile */
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    @media (min-width: 768px) {
+        .media-showcase {
+            flex-direction: row; /* Arranges items horizontally on desktop */
+            align-items: flex-start;
+        }
+    }
+
+    .image-container {
+        flex: 1; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-right: 15px; /* Added separation from description */
+    }
+
+    .project-img {
+        border-radius: 6px;
+        margin-bottom: 15px;
+        max-height: 250px; 
+        width: 100%; 
+        object-fit: contain;
+        background-color: #f9f9f9; 
+        padding: 10px; 
+        border: 1px solid #ddd;
+    }
+    
+    /* Document Links Styling */
+    .media-link-group {
+        flex: 2; /* Give more space to the text/description */
+        border-left: 1px solid #eee;
+        padding-left: 15px;
+        background: #fcfcfc; /* Subtle background color for text section */
+        padding-top: 5px;
+        border-radius: 0 8px 8px 0;
+    }
+    
+    .media-link-group h4 {
+        color: #1a237e;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 5px;
+        margin-top: 0;
+    }
+
+    /* Style for Key Achievement List */
+    .media-link-group ul {
+        list-style: disc; 
+        padding-left: 20px; 
+        font-size: 0.95em;
+        line-height: 1.6;
+        color: #555;
+    }
+    
+    .media-link-group .highlight {
+        color: #e91e63; /* Pink color for emphasis */
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    /* Style for Horizontal Link Bar */
+    .link-bar {
+        display: flex;
+        flex-wrap: wrap; 
+        gap: 15px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        list-style: none;
+        padding: 0;
+    }
+
+    .link-bar li {
+        flex-grow: 1; 
+        /* Enforced equal width for four items in a row on desktop */
+        min-width: calc(25% - 15px); 
+    }
+
+    .link-bar a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+        transition: all 0.2s; /* Transition all properties for smoothness */
+        padding: 8px 10px; 
+        background: #f0f0f5;
+        border-radius: 6px;
+        border: 1px solid transparent;
+        color: #0d1543;
+        text-align: center;
+        justify-content: center; /* Center content horizontally */
+    }
+    .link-bar a:hover {
+        color: white;
+        background: #1a237e; /* Dark blue background on hover */
+        border-color: #ffc107;
+        transform: translateY(-2px); /* Slight lift on hover */
+    }
+    
+    /* Icon Sizing */
+    .github-icon, .pdf-icon, .ppt-icon {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+    }
+    
+    .pdf-icon-poster {
+        width: 30px; /* Slightly larger icon for the poster image */
+        height: 30px;
+        border-radius: 4px;
+        margin-right: -5px;
+        object-fit: cover;
+    }
+
+    /* Team Grid Styles (unchanged) */
+    .team-grid {
+        display: flex;
+        flex-wrap: wrap; 
+        gap: 30px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .team-member {
+        flex-basis: 200px; 
+    }
+
+    .team-headshot {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%; /* Makes the images circular */
+        object-fit: cover;
+        margin: 0 auto 10px; 
+        border: 4px solid #1a237e; 
     }
 
     footer {
@@ -80,6 +272,30 @@
     a:hover {
       text-decoration: underline;
     }
+
+    /* ------------------------------------------------------------------- */
+    /* 5. Keyframes Definitions */
+    /* ------------------------------------------------------------------- */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.02); }
+        100% { transform: scale(1); }
+    }
+    
+    header h1 {
+        animation: pulse 3s infinite ease-in-out; /* Continuous, subtle pulse */
+    }
   </style>
 </head>
 <body>
@@ -88,6 +304,12 @@
     <h1>Morgan State University Computer Science Research Lab</h1>
     <p>Exploring AI, Robotics, and Quantum Technologies</p>
   </header>
+
+  <!-- Hero Image Section (Using lab.jpg) -->
+  <div class="hero">
+    <img src="https://i.imgur.com/TCwkjRp.jpg" alt="Morgan State Research Lab or Robotics" class="hero-image">
+  </div>
+  <!-- End Hero Image Section -->
 
 
   <nav>
@@ -101,7 +323,7 @@
 
  
   <section id="about">
-    <h2>About our Lab</h2>
+    <h2>Our Lab</h2>
     <p>We are a undergraduate student-led research lab at Morgan State University working on exciting projects in artificial intelligence, human-robot interaction, and quantum computing. The lab operates under the guidance of Dr. Paul Wang, Chair and Professor of the Department of Computer Science. </p>
   </section>
 
@@ -109,21 +331,87 @@
     <h2>Research Projects</h2>
 
     <div class="project">
-      <h3>NAO Robot Assistant</h3>
-      <p><strong>By:</strong> Aayush Shrestha</p>
-      <p>This project integrates OpenAI Whisper (speech-to-text), GPT for conversational logic, and NAOqi motion control to turn the NAO humanoid robot into a smart assistant that responds to voice commands and engages in meaningful dialogue.</p>
-      <p><a href="https://github.com/theaayushstha1/Nao-OpenAI-Morgan-Assist" target="_blank">View GitHub Repository →</a></p>
+      <h3>NAO–OpenAI Autonomous Assistant</h3>
+      <p style="font-style: italic; margin-bottom: 20px;">Project by Aayush Shrestha</p>
+      
+      <!-- NEW: Media Showcase Container -->
+      <div class="media-showcase">
+          
+          <!-- Column 1: Images and Video Demo -->
+          <div class="image-container">
+              <p style="font-weight: bold; margin-bottom: 5px; color: #0d1543;">Video Demo</p>
+              
+              <!-- Primary Project Image (used for video link) -->
+              <a href="https://www.youtube.com/watch?v=tu-cO0_eP7U" title="Watch NAO Robot Assistant Demo" target="_blank">
+                  <img src="https://i.imgur.com/MQ1bXH5.jpg" alt="Click to watch video demo of NAO Robot" class="project-img" style="border: 2px solid #ffc107; cursor: pointer;">
+              </a>
+              <p style="text-align: center; font-size: 0.9em; margin-top: 5px;">Click image above to watch video demo</p>
+          </div>
+
+          <!-- Column 2: Description and Key Achievements -->
+          <div class="media-link-group">
+              
+              <h4>Project Summary</h4>
+              <p>Under the supervision of Dr. Paul Wang, Chair of the Computer Science Department at Morgan State University, this project integrates <span class="highlight">OpenAI’s GPT and Whisper models</span> with the NAO6 humanoid robot to enhance its conversational and interactive capabilities. The system enables NAO to understand spoken language, generate intelligent responses, and interact naturally with users.</p>
+
+              <h4>Key Achievements</h4>
+              <ul>
+                  <li>Developed a <span class="highlight">Flask-based backend server</span> for handling speech transcription, OpenAI responses, and database logging.</li>
+                  <li>Implemented <span class="highlight">face recognition</span> for personalized greetings and user identification.</li>
+                  <li>Designed <span class="highlight">multi-mode personalities</span> (e.g., study mode, general mode) with adjustable tone and pitch.</li>
+                  <li>Currently expanding to <span class="highlight">Pinecone vector search</span> for memory-based conversation and knowledge retrieval.</li>
+              </ul>
+              
+          </div>
+      </div>
+      <!-- END: Media Showcase Container -->
+      
+      <!-- NEW: Horizontal Link Bar for Documents and Repository -->
+      <ul class="link-bar" style="border-top: 1px solid #ddd; padding-top: 15px;">
+          <li>
+              <a href="https://github.com/theaayushstha1/Nao-OpenAI-Morgan-Assist" target="_blank">
+                  <!-- GitHub Icon -->
+                  <img src="https://i.imgur.com/HDn0If1.png" alt="GitHub Logo" class="github-icon">
+                  Source Code
+              </a>
+          </li>
+          <li>
+              <a href="assets/images/AMAZON AWS POSTER.pdf" target="_blank">
+                  <!-- Poster Icon using nao.jpeg -->
+                  <img src="https://i.imgur.com/ziaQy9Y.jpeg" alt="NAO Robot poster icon" class="pdf-icon-poster">
+                  AWS Poster (PDF)
+              </a>
+          </li>
+          <li>
+              <!-- UPDATED LINK: Using Google Slides URL -->
+              <a href="https://docs.google.com/presentation/d/1f4WsP6yOmTGO51Okk8gsDq4sFW5cnx8h/edit?slide=id.p1#slide=id.p1" target="_blank">
+                   <!-- Presentation Icon -->
+                  <span style="font-size: 1.2em;">💻</span> Final Presentation (G-Slides)
+              </a>
+          </li>
+          <li>
+              <!-- SoftBank Reference Documentation -->
+              <a href="http://doc.aldebaran.com/2-8/home_nao.html" target="_blank">
+                  <span style="font-size: 1.2em;">📘</span> NAO Developer Docs
+              </a>
+          </li>
+      </ul>
+      <!-- END: Horizontal Link Bar -->
     </div>
 
+    <!-- MSU CS Navigator Project -->
     <div class="project">
       <h3>MSU CS Navigator</h3>
+      <img src="assets/images/chatbot_ui.jpg" alt="Screenshot of the RAG chatbot interface" class="project-img">
       <p><strong>By:</strong> Sakina Shrestha</p>
       <p>This RAG chatbot is designed to assist students with common questions related to the Morgan State CS Department. Built with FastAPI, Pinecone, and OpenAI, it’s deployed on AWS and integrates into the NAO robot for voice support.</p>
       <p><a href="https://github.com/Sakinastha/cs-chatbot" target="_blank">View GitHub Repository →</a></p>
     </div>
 
+    <!-- Quantum Entanglement Project -->
     <div class="project">
       <h3>Quantum Entanglement & Qiskit</h3>
+      <img src="assets/images/quantum_graphic.png" alt="Graphic representing quantum entanglement" class="project-img">
       <p><strong>By:</strong> Julian Gordon</p>
       <p>This project uses the quED and quCR experimental setup to explore quantum entanglement, measure polarization correlations of photon pairs, and analyze violations of Bell’s inequality to demonstrate quantum nonlocality.</p>
       <p><a href="https://example.com/report.pdf" target="_blank">View Report (PDF) →</a></p>
@@ -132,12 +420,31 @@
 
   <section id="team">
     <h2>Team</h2>
-    <ul>
-      <li><b>Dr. Paul Wang</b> – Chair and Professor of Computer Science Department</li>
-      <li><b>Aayush Shrestha</b> – Research Assistant</li>
-      <li><b>Sakina Shrestha</b> – Research Assistant</li>
-      <li><b>Julian Gordon</b> – Research Assistant</li>
-    </ul>
+    <!-- Team Grid Layout -->
+    <div class="team-grid">
+      <div class="team-member">
+          <img src="assets/images/paul_headshot.jpg" alt="Photo of Dr. Paul Wang" class="team-headshot">
+          <p><b>Dr. Paul Wang</b></p>
+          <p>Chair and Professor of Computer Science Department</p>
+      </div>
+      <div class="team-member">
+          <!-- Confirmed Image Path -->
+          <img src="https://i.imgur.com/2luIT5s.jpeg" alt="Photo of Aayush Shrestha" class="team-headshot">
+          <p><b>Aayush Shrestha</b></p>
+          <p>Research Assistant</p>
+      </div>
+      <div class="team-member">
+          <img src="assets/images/sakina_headshot.jpg" alt="Photo of Sakina Shrestha" class="team-headshot">
+          <p><b>Sakina Shrestha</b></p>
+          <p>Research Assistant</p>
+      </div>
+      <div class="team-member">
+          <img src="assets/images/julian_headshot.jpg" alt="Photo of Julian Gordon" class="team-headshot">
+          <p><b>Julian Gordon</b></p>
+          <p>Research Assistant</p>
+      </div>
+    </div>
+    <!-- End Team Grid Layout -->
   </section>
 
   <section id="contact">
