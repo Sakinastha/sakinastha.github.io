@@ -657,37 +657,189 @@
 
 <div class="project">
   <h3>Quantum Security Study with Quantum Cryptography Protocols and Algorithms</h3>
-  
-  <img src="assets/images/quantum_graphic.png" 
-       alt="Visualization of quantum entanglement and photon correlations" 
-       class="project-img">
+  <p style="font-style: italic; margin-bottom: 20px;">Project by Julian Gordon</p>
 
-  <p><strong>Project by:</strong> Julian Gordon</p>
+  <div class="media-showcase">
+    <div class="image-container">
+      <p style="font-weight: bold; margin-bottom: 10px; color: #0d1543;">Research Visualization</p>
+      
+      <!-- Image Carousel -->
+      <div class="carousel">
+        <div class="carousel-images">
+          <img src="https://i.imgur.com/XSCfA3Y.png" alt="Quantum Diagram 1" class="carousel-img active">
+          <img src="https://i.imgur.com/IxpTAwl.png" alt="Quantum Diagram 2" class="carousel-img">
+          <img src="https://i.imgur.com/bOeLYhV.jpeg" alt="Quantum Diagram 3" class="carousel-img">
+        </div>
+        <button class="carousel-btn prev">&#10094;</button>
+        <button class="carousel-btn next">&#10095;</button>
+      </div>
 
-  <div class="project-summary">
-    <h4>Project Summary</h4>
-    <p>
-      This research explores the integration of quantum mechanics principles and cryptographic algorithms to improve network security through Quantum Key Distribution (QKD). 
-      Using the <strong>BB84 protocol</strong>, the study simulates man-in-the-middle attacks and analyzes photon entanglement, polarization, and Quantum Bit Error Rate (QBER) to detect eavesdropping attempts.
-    </p>
+      <p style="text-align: center; font-size: 0.9em; margin-top: 5px;">
+        Image carousel: Quantum cryptography visualization
+      </p>
+    </div>
+
+    <div class="media-link-group">
+      <h4>Project Summary</h4>
+      <p>
+        This research explores the integration of quantum mechanics principles and cryptographic algorithms 
+        to improve network security through <span class="highlight">Quantum Key Distribution (QKD)</span>. 
+        Using the <span class="highlight">BB84 protocol</span>, the study simulates man-in-the-middle attacks and analyzes 
+        photon entanglement, polarization, and Quantum Bit Error Rate (QBER) to detect eavesdropping attempts.
+      </p>
+
+      <h4>Key Results & Highlights</h4>
+      <ul>
+        <li>Implemented quantum encryption using the <span class="highlight">BB84 protocol</span> with randomly generated photon states in rectilinear and diagonal bases.</li>
+        <li>Measured photon correlations using <span class="highlight">quED and quCR experimental setups</span> to analyze entanglement and quantum nonlocality.</li>
+        <li>Observed low QBER under secure conditions, and a sharp QBER increase under simulated eavesdropping — confirming protocol sensitivity.</li>
+        <li>Used <span class="highlight">IDQ Cerberus QKD devices</span> to validate detection of interception attempts via photon state disturbances.</li>
+        <li>Developed a visualization tool displaying real-time entanglement and QBER changes to enhance research and educational understanding.</li>
+      </ul>
+    </div>
   </div>
 
-  <div class="key-achievements">
-    <h4>Key Results & Highlights</h4>
-    <ul>
-      <li>Implemented quantum encryption using the <strong>BB84 protocol</strong> with randomly generated photon states in rectilinear and diagonal bases.</li>
-      <li>Measured photon correlations using <strong>quED and quCR experimental setups</strong> to analyze entanglement and quantum nonlocality.</li>
-      <li>Observed low QBER under secure conditions, and a sharp QBER increase under simulated eavesdropping — confirming protocol sensitivity.</li>
-      <li>Used <strong>IDQ Cerberus QKD devices</strong> to validate detection of interception attempts via photon state disturbances.</li>
-      <li>Developed a visualization tool displaying real-time entanglement and QBER changes to enhance research and educational understanding.</li>
-      <li>Demonstrated how <strong>quantum communication outperforms classical methods</strong> in security through entangled photon pair verification.</li>
-    </ul>
-  </div>
-
-  <p>
-    <a href="https://example.com/report.pdf" target="_blank"><strong>View Report (PDF)</strong> →</a>
-  </p>
+  <!-- 🔗 Project Links -->
+  <ul class="link-bar" style="border-top: 1px solid #ddd; padding-top: 15px;">
+    <li>
+      <a href="https://github.com/juliannng/QKD-Experimental-Data-Analysis" target="_blank">
+        <img src="https://imgur.com/HDn0If1.png" alt="GitHub Logo" class="github-icon">
+        Source Code
+      </a>
+    </li>
+    <li>
+      <a href="assets/images/quantum_poster.pdf" target="_blank">
+        <img src="https://i.imgur.com/R2aYh1S.jpg" alt="Quantum Research Poster" class="pdf-icon-poster">
+        Poster (PDF)
+      </a>
+    </li>
+  </ul>
 </div>
+
+<!-- Carousel Styling -->
+<style>
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.15);
+  margin: 0 auto;
+}
+
+.carousel-images {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.carousel-img {
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 1.2s ease-in-out;
+  border: 2px solid #C9510C;
+}
+
+.carousel-img.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Pause auto-rotation on hover */
+.carousel:hover {
+  animation-play-state: paused;
+}
+
+/* GitHub icon size + hover */
+.github-icon {
+  width: 22px;
+  height: 22px;
+  margin-right: 6px;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+}
+.github-icon:hover {
+  transform: scale(1.15);
+}
+</style>
+
+<!-- Carousel Script -->
+<script>
+const images = document.querySelectorAll('.carousel-img');
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
+let index = 0;
+let interval;
+
+function showImage(i) {
+  images.forEach(img => img.classList.remove('active'));
+  images[i].classList.add('active');
+}
+
+function nextImage() {
+  index = (index + 1) % images.length;
+  showImage(index);
+}
+
+function prevImage() {
+  index = (index - 1 + images.length) % images.length;
+  showImage(index);
+}
+
+nextBtn.addEventListener('click', () => {
+  nextImage();
+  resetInterval();
+});
+
+prevBtn.addEventListener('click', () => {
+  prevImage();
+  resetInterval();
+});
+
+// Auto-rotate every 4 seconds
+function startCarousel() {
+  interval = setInterval(nextImage, 4000);
+}
+
+function resetInterval() {
+  clearInterval(interval);
+  startCarousel();
+}
+
+// Pause when hovering
+document.querySelector('.carousel').addEventListener('mouseenter', () => clearInterval(interval));
+document.querySelector('.carousel').addEventListener('mouseleave', startCarousel);
+
+showImage(index);
+startCarousel();
+</script>
+
 
   <section id="team">
     <h2>Meet the Team</h2>
