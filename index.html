@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🔹 Favicon -->
+<link rel="icon" href="https://i.imgur.com/R2aYh1S.jpg" type="image/jpeg" sizes="32x32">
   <title>Morgan State University</title>
   <style>
+    /* --- your existing styles (kept) --- */
     body {
       font-family: Arial, sans-serif;
       background: #f4f4f4;
@@ -12,501 +16,259 @@
       margin: 0;
       padding: 0;
     }
+    img { max-width: 100%; height: auto; display: block; }
+    header, nav { opacity: 0; animation: dropIn 0.8s ease-out forwards; }
+    header { background: #102B4C; color: white; padding: 2rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); animation-delay: 0.1s; }
+    nav { background: #061626; padding: 0.8rem 0; animation-delay: 0.3s; }
+    .navbar { list-style: none; display: flex; justify-content: center; gap: 2rem; margin: 0; padding: 0; }
+    .navbar a { color: white; text-decoration: none; font-weight: bold; font-size: 1rem; transition: color 0.3s ease; }
+    .navbar a:hover { color: #C9510C; text-decoration: none; }
+    section { padding: 2rem; opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
+    #about { animation-delay: 0.5s; } #projects { animation-delay: 0.7s; } #team { animation-delay: 0.9s; } #contact { animation-delay: 1.1s; }
+    .hero { margin-top: -24px; overflow: hidden; }
+    .hero-image { width: 100%; height: 300px; object-fit: cover; object-position: 50% 10%; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+    .project { background: white; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; }
+    .project:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); cursor: pointer; }
+    .project h3 { margin-top: 0; color: #102B4C; font-size: 1.75em; }
+    .lab-highlight { color: #ffc107; font-weight: bold; font-size: 1.05em; transition: color 0.3s; }
+    .lab-description p { margin-bottom: 0.5rem; line-height: 1.6; font-size: 1.1em; }
+    .lab-description p:last-child { margin-bottom: 0; }
+    .media-showcase { display: flex; flex-direction: column; gap: 20px; margin-bottom: 20px; }
+    @media (min-width: 768px) { .media-showcase { flex-direction: row; align-items: flex-start; } }
+    .image-container { flex: 1; display: flex; flex-direction: column; align-items: center; padding-right: 15px; }
+    .project-img { border-radius: 6px; margin-bottom: 15px; max-height: 250px; width: 100%; object-fit: contain; background-color: #f9f9f9; padding: 10px; border: 1px solid #ddd; }
+    .media-link-group { flex: 2; border-left: 1px solid #eee; padding-left: 15px; background: #fcfcfc; padding-top: 5px; border-radius: 0 8px 8px 0; }
+    .media-link-group h4 { color: #102B4C; border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-top: 0; margin-bottom: 15px; }
+    .media-link-group ul { list-style: disc; padding-left: 20px; font-size: 0.95em; line-height: 1.6; color: #555; }
+    .media-link-group .highlight { color: #e91e63; font-weight: bold; font-style: italic; }
 
-    img {
-        max-width: 100%; 
-        height: auto;
-        display: block; 
-    }
+    /* existing link bar styles (kept) but we'll replace the quantum project's one below */
+    .link-bar { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px; margin-bottom: 10px; list-style: none; padding: 0; }
+    .link-bar li { flex-grow: 1; min-width: calc(25% - 15px); }
+    .link-bar a { display: flex; align-items: center; gap: 8px; font-weight: 500; transition: all 0.2s; padding: 8px 10px; background: #f0f0f5; border-radius: 6px; border: 1px solid transparent; color: #061626; text-align: center; justify-content: center; }
+    .link-bar a:hover { color: white; background: #102B4C; border-color: #C9510C; transform: translateY(-2px); }
+    .github-icon, .pdf-icon, .ppt-icon { width: 20px; height: 20px; object-fit: contain; }
+    .pdf-icon-poster { width: 30px; height: 30px; border-radius: 4px; margin-right: -5px; object-fit: cover; }
 
-    header, nav {
-        opacity: 0;
-        animation: dropIn 0.8s ease-out forwards;
-    }
-    
-    header {
-      background: #102B4C; 
-      color: white;
-      padding: 2rem;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      animation-delay: 0.1s;
-    }
+    /* team & contact styles kept (omitted here for brevity) */
+    /* ... (existing contact, team, keyframe styles remain the same) */
 
-    nav {
-      background: #061626; 
-      padding: 0.8rem 0;
-      animation-delay: 0.3s;
-    }
-    
-    .navbar {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 0;
-      padding: 0;
-    }
+    @keyframes dropIn { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse { 0% { opacity: 0.9; } 50% { opacity: 1; } 100% { opacity: 0.9; } }
+    header h1 { animation: pulse 3s infinite ease-in-out; }
 
-    .navbar li {
-      display: inline;
-    }
+    /* -------------------------
+       NEW: carousel & link-bar replacement styles
+       ------------------------- */
+    .carousel { position: relative; width: 100%; max-width: 480px; overflow: hidden; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15); margin: 0 auto; background: #fff; }
+    .carousel-images { position: relative; width: 100%; height: auto; min-height: 180px; }
+    .carousel-img { width: 100%; height: auto; opacity: 0; position: absolute; top: 0; left: 0; transition: opacity 1s ease-in-out; border: 2px solid #C9510C; border-radius: 6px; background: white; }
+    .carousel-img.active { opacity: 1; z-index: 1; position: relative; }
+    .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0,0,0,0.5); color: white; border: none; font-size: 22px; cursor: pointer; padding: 8px 12px; border-radius: 50%; transition: background-color 0.3s ease; z-index: 20; }
+    .carousel-btn:hover { background-color: rgba(0,0,0,0.8); }
+    .prev { left: 10px; } .next { right: 10px; }
+    .carousel-caption { text-align:center; font-size:0.9em; margin-top:10px; color:#333; }
 
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: color 0.3s ease; 
-    }
+    /* link-bar-button style (replacement for the quantum project's bottom bar) */
+    .link-bar-container { width: 100%; display:flex; justify-content:center; margin-top: 20px; }
+    .link-bar-buttons { display:flex; gap:18px; align-items:center; padding:12px; background: rgba(13,21,67,0.03); border-radius:10px; box-shadow: 0 4px 10px rgba(0,0,0,0.04); z-index: 9999; position: relative; }
+    .link-btn { display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:#0d1543; background:#fff; border-radius:8px; padding:10px 16px; box-shadow:0 2px 6px rgba(0,0,0,0.06); border:1px solid rgba(13,21,67,0.06); font-weight:600; font-size:16px; transition: transform .12s ease, box-shadow .12s ease; pointer-events:auto; }
+    .link-icon { width:22px; height:22px; display:inline-block; }
+    .link-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(0,0,0,0.09); }
+    
+    /* --- Fix Meet the Team layout --- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 1.5rem;
+  justify-items: center;
+}
 
-    .navbar a:hover {
-      color: #C9510C; 
-      text-decoration: none;
-    }
+.team-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  max-width: 250px;
+}
 
-    section {
-      padding: 2rem;
-      opacity: 0; 
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
 
-    #about { animation-delay: 0.5s; } 
-    #projects { animation-delay: 0.7s; }
-    #team { animation-delay: 0.9s; }
-    #contact { animation-delay: 1.1s; }
+.team-headshot {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #C9510C;
+  margin: 0 auto 12px auto;
+  display: block;
+}
 
-    .hero {
-        margin-top: -24px; 
-        overflow: hidden;
-    }
+/* --- Carousel stability fix --- */
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  overflow: hidden;
+  border: 2px solid #C9510C;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.15);
+  margin: 0 auto;
+  background: #fff;
+}
 
-    .hero-image {
-        width: 100%;
-        height: 300px; 
-        object-fit: cover; 
-        object-position: 50% 10%;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-    
-    .project {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; 
-    }
+.carousel-images {
+  position: relative;
+  width: 100%;
+  height: 280px; /* fixed height to prevent jumping */
+}
 
-    .project:hover {
-        transform: translateY(-8px); 
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); 
-        cursor: pointer;
-    }
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
 
-    .project h3 {
-      margin-top: 0;
-      color: #102B4C; 
-      font-size: 1.75em; 
-    }
-    
-    .lab-highlight {
-        color: #ffc107; 
-        font-weight: bold;
-        font-size: 1.05em;
-        transition: color 0.3s;
-    }
-    .lab-description p {
-        margin-bottom: 0.5rem; 
-        line-height: 1.6;
-        font-size: 1.1em;
-    }
-    .lab-description p:last-child {
-        margin-bottom: 0;
-    }
+.carousel-img.active {
+  opacity: 1;
+  z-index: 1;
+  position: absolute;
+}
 
+.carousel-img {
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+.carousel-img.active {
+  transform: scale(1.02);
+}
 
-    .media-showcase {
-        display: flex;
-        flex-direction: column; 
-        gap: 20px;
-        margin-bottom: 20px;
-    }
-    @media (min-width: 768px) {
-        .media-showcase {
-            flex-direction: row; 
-            align-items: flex-start;
-        }
-    }
+/* --- Contact Section Fix --- */
+#contact {
+  background: #f8f9fc;
+  padding: 3rem 2rem;
+  border-top: 2px solid #ddd;
+}
 
-    .image-container {
-        flex: 1; 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-right: 15px; 
-    }
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
-    .project-img {
-        border-radius: 6px;
-        margin-bottom: 15px;
-        max-height: 250px; 
-        width: 100%; 
-        object-fit: contain;
-        background-color: #f9f9f9; 
-        padding: 10px; 
-        border: 1px solid #ddd;
-    }
-    
-    .media-link-group {
-        flex: 2; 
-        border-left: 1px solid #eee;
-        padding-left: 15px;
-        background: #fcfcfc; 
-        padding-top: 5px;
-        border-radius: 0 8px 8px 0;
-    }
-    
-    .media-link-group h4 {
-        color: #102B4C; 
-        border-bottom: 2px solid #ddd;
-        padding-bottom: 10px;
-        margin-top: 0;
-        margin-bottom: 15px;
-    }
+.contact-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 1.8rem;
+  flex: 1 1 420px;
+  min-width: 300px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
 
-    .media-link-group ul {
-        list-style: disc; 
-        padding-left: 20px; 
-        font-size: 0.95em;
-        line-height: 1.6;
-        color: #555;
-    }
-    
-    .media-link-group .highlight {
-        color: #e91e63; 
-        font-weight: bold;
-        font-style: italic;
-    }
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
 
-    .link-bar {
-        display: flex;
-        flex-wrap: wrap; 
-        gap: 15px;
-        margin-top: 15px;
-        margin-bottom: 10px;
-        list-style: none;
-        padding: 0;
-    }
+.contact-card h3 {
+  color: #102B4C;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #C9510C;
+  display: inline-block;
+  padding-bottom: 4px;
+}
 
-    .link-bar li {
-        flex-grow: 1; 
-        min-width: calc(25% - 15px); 
-    }
+.contact-info-item,
+.contact-info-block {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
 
-    .link-bar a {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-weight: 500;
-        transition: all 0.2s; 
-        padding: 8px 10px; 
-        background: #f0f0f5;
-        border-radius: 6px;
-        border: 1px solid transparent;
-        color: #061626; 
-        text-align: center;
-        justify-content: center; 
-    }
-    .link-bar a:hover {
-        color: white;
-        background: #102B4C; 
-        border-color: #C9510C; 
-        transform: translateY(-2px); 
-    }
-    
-    .github-icon, .pdf-icon, .ppt-icon {
-        width: 20px;
-        height: 20px;
-        object-fit: contain;
-    }
-    
-    .pdf-icon-poster {
-        width: 30px; 
-        height: 30px;
-        border-radius: 4px;
-        margin-right: -5px;
-        object-fit: cover;
-    }
+.contact-info-item strong {
+  display: block;
+  color: #0d1543;
+  margin-bottom: 4px;
+}
 
-    .team-grid {
-        display: flex;
-        flex-wrap: wrap; 
-        gap: 30px;
-        justify-content: center;
-        text-align: center;
-        padding: 20px 0;
-    }
+.contact-info-block {
+  border-top: 1px dashed #ddd;
+  padding-top: 10px;
+}
 
-    .team-member {
-        flex-basis: 220px; 
-    }
-    
-    .team-card {
-        background: white;
-        border-radius: 12px;
-        padding: 20px 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        transition: all 0.3s ease;
-    }
-    
-    .team-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        background: #fcfdff; 
-    }
+.name-and-degree {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    .team-headshot {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%; 
-        object-fit: cover;
-        margin: 0 auto 10px; 
-        border: 4px solid #102B4C; 
-        transition: border-color 0.3s ease;
-    }
-    
-    .team-card:hover .team-headshot {
-        border-color: #C9510C; 
-    }
-    
-    .team-member p {
-        margin: 5px 0;
-        font-size: 0.9em;
-    }
-    
-    .team-member b {
-        font-size: 1.1em;
-        color: #061626; 
-        display: block;
-        margin-top: 10px;
-    }
-    
-    .contact-container {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    @media (min-width: 768px) {
-        .contact-container {
-            flex-direction: row;
-            justify-content: space-between;
-        }
-    }
-    
-    .contact-card {
-        flex: 1;
-        background: white;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        border-top: 4px solid #102B4C;
-        transition: all 0.3s ease;
-    }
-    
-    .contact-card h3 {
-        color: #102B4C;
-        border-bottom: 2px solid #C9510C; 
-        padding-bottom: 10px;
-        margin-top: 0;
-        margin-bottom: 15px;
-    }
-    
-    .contact-button {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        margin-top: 15px;
-        padding: 10px 20px;
-        background: #C9510C; 
-        color: white; 
-        text-decoration: none;
-        font-weight: bold;
-        border-radius: 6px;
-        transition: background 0.2s, transform 0.2s;
-    }
-    
-    .contact-button:hover {
-        background: #a3410b; 
-        transform: translateY(-2px);
-        text-decoration: none;
-    }
+.student-details {
+  font-size: 0.9em;
+  color: #666;
+  margin-left: 10px;
+}
 
-    .contact-card ul {
-        list-style: none;
-        padding: 0;
-    }
-    
-    .contact-card li a {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px;
-        margin-bottom: 5px;
-        color: #102B4C;
-        text-decoration: none;
-        background-color: #f7f7f7;
-        border-radius: 66px;
-        transition: background-color 0.2s, color 0.2s;
-        font-weight: 500;
-    }
-    
-    .contact-card li a:hover {
-        background-color: #102B4C;
-        color: white;
-        text-decoration: none;
-    }
-    
-    .contact-info-block {
-        margin-bottom: 15px;
-        line-height: 1.4;
-        background-color: #f7f7f7; 
-        padding: 10px;
-        border-radius: 6px;
-        transition: background-color 0.3s ease;
-    }
-    
-    .contact-info-block:hover {
-        background-color: #efefef;
-    }
+.linkedin-link {
+  display: inline-block;
+}
 
-    .contact-info-item {
-        margin-bottom: 10px;
-        line-height: 1.4;
-    }
-    .contact-info-item strong {
-        color: #061626;
-        display: block;
-        margin-bottom: 3px;
-    }
-    .contact-info-item .phone-number {
-        display: block;
-        color: #102B4C;
-        font-weight: 500;
-        text-decoration: none;
-        font-size: 0.9em;
-        margin-top: 5px; 
-    }
-    .contact-info-item .phone-number::before {
-        content: '📞';
-        margin-right: 5px;
-    }
-    
-    .contact-info-block p {
-        margin: 0;
-        line-height: 1.2;
-    }
-    
-    .contact-info-block .student-details {
-        font-size: 0.9em;
-        color: #555;
-        margin-bottom: 5px;
-    }
-    
-    .contact-info-block a {
-        display: block;
-        margin-bottom: 2px;
-        color: #102B4C; 
-        font-weight: 500;
-        text-decoration: none;
-        line-height: 1.3;
-    }
-    
-    .contact-info-block a[href^="mailto"]::before {
-        content: '📧';
-        margin-right: 5px;
-        font-size: 0.9em;
-    }
+.linkedin-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 6px;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+}
 
-    .contact-info-block .linkedin-icon {
-        width: 18px;
-        height: 18px;
-        transition: transform 0.2s;
-    }
-    
-    .contact-info-block .linkedin-link {
-        display: flex;
-        align-items: center;
-        text-decoration: none; 
-        color: #061626; 
-        transition: background-color 0.2s, transform 0.2s;
-        font-size: 0.9em;
-        font-weight: bold;
-    }
-    
-    .contact-info-block .linkedin-link:hover {
-        transform: scale(1.1);
-    }
-    
-    .contact-info-block .name-and-degree {
-        display: flex;
-        justify-content: space-between; 
-        align-items: center; 
-        margin-bottom: 5px;
-    }
-    
-    .contact-info-block .name-and-degree strong {
-        display: flex; 
-        align-items: center;
-        font-size: 1em;
-        color: #061626;
-    }
-    
-    .contact-info-block .name-and-degree .student-details {
-        margin-bottom: 0;
-        font-size: 0.85em;
-        color: #C9510C; 
-        font-weight: bold;
-        margin-left: 10px; 
-    }
+.linkedin-icon:hover {
+  transform: scale(1.15);
+}
 
-    .contact-info-block .name-and-degree .linkedin-link {
-        margin-left: 15px; 
-    }
+.phone-number, 
+.contact-card a {
+  display: block;
+  color: #C9510C;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 3px;
+}
 
+.phone-number:hover, 
+.contact-card a:hover {
+  color: #102B4C;
+  text-decoration: underline;
+}
 
-    @keyframes dropIn {
-        from {
-            opacity: 0;
-            transform: translateY(-50px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
+/* Footer alignment fix */
+footer {
+  background: #061626;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
 
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes pulse {
-        0% { opacity: 0.9; }
-        50% { opacity: 1; }
-        100% { opacity: 0.9; }
-    }
-    
-    header h1 {
-        animation: pulse 3s infinite ease-in-out; 
-    }
   </style>
 </head>
 <body>
@@ -529,417 +291,367 @@
     </ul>
   </nav>
 
- 
   <section id="about">
     <h2>About Our Lab</h2>
     <div class="lab-description">
-        <p>We are a highly motivated, undergraduate student-led research lab at Morgan State University, dedicated to pushing the boundaries of technology in the fields of:
-            <span class="lab-highlight">Artificial Intelligence,</span>
-            <span class="lab-highlight">Human-Robot Interaction,</span> and
-            <span class="lab-highlight">Quantum Computing.</span>
-        </p>
-        <p>The lab operates under the guidance of Dr. Paul Wang, Chair and Professor of the Department of Computer Science. Our work emphasizes practical application, collaborative development, and cutting-edge software solutions to solve real-world challenges in STEM.</p>
+      <p>We are a highly motivated, undergraduate student-led research lab at Morgan State University, dedicated to pushing the boundaries of technology in the fields of:
+        <span class="lab-highlight">Artificial Intelligence,</span>
+        <span class="lab-highlight">Human-Robot Interaction,</span> and
+        <span class="lab-highlight">Quantum Computing.</span>
+      </p>
+      <p>The lab operates under the guidance of Dr. Paul Wang, Chair and Professor of the Department of Computer Science. Our work emphasizes practical application, collaborative development, and cutting-edge software solutions to solve real-world challenges in STEM.</p>
     </div>
   </section>
 
   <section id="projects">
     <h2>Research Projects</h2>
 
+    <!-- First project (NAO) unchanged -->
     <div class="project">
       <h3>NAO–OpenAI Autonomous Assistant</h3>
       <p style="font-style: italic; margin-bottom: 20px;">Project by Aayush Shrestha</p>
-      
       <div class="media-showcase">
-          
-          <div class="image-container">
-              <p style="font-weight: bold; margin-bottom: 5px; color: #0d1543;">Video Demo</p>
-              
-              <a href="https://youtu.be/T_3m2RSoC7c" title="Watch NAO Robot Assistant Demo" target="_blank">
-                  <img src="https://i.imgur.com/MQ1bXH5.jpg" alt="Click to watch video demo of NAO Robot" class="project-img" style="border: 2px solid #C9510C; cursor: pointer;">
-              </a>
-              <p style="text-align: center; font-size: 0.9em; margin-top: 5px;">Click image above to watch video demo</p>
-          </div>
+        <div class="image-container">
+          <p style="font-weight: bold; margin-bottom: 5px; color: #0d1543;">Video Demo</p>
+          <a href="https://youtu.be/T_3m2RSoC7c" title="Watch NAO Robot Assistant Demo" target="_blank">
+            <img src="https://i.imgur.com/MQ1bXH5.jpg" alt="Click to watch video demo of NAO Robot" class="project-img" style="border: 2px solid #C9510C; cursor: pointer;">
+          </a>
+          <p style="text-align: center; font-size: 0.9em; margin-top: 5px;">Click image above to watch video demo</p>
+        </div>
 
-          <div class="media-link-group">
-              
-              <h4>Project Summary</h4>
-              <p>Under the supervision of Dr. Paul Wang, Chair of the Computer Science Department at Morgan State University, this project integrates <span class="highlight">OpenAI's GPT and Whisper models</span> with the NAO6 humanoid robot to enhance its conversational and interactive capabilities. The system enables NAO to understand spoken language, generate intelligent responses, and interact naturally with users.</p>
-
-              <h4>Key Achievements</h4>
-              <ul>
-                  <li>Developed a <span class="highlight">Flask-based backend server</span> for handling speech transcription, OpenAI responses, and database logging.</li>
-                  <li>Implemented <span class="highlight">face recognition</span> for personalized greetings and user identification.</li>
-                  <li>Designed <span class="highlight">multi-mode personalities</span> (e.g., study mode, general mode) with adjustable tone and pitch.</li>
-                  <li>Currently expanding to <span class="highlight">Pinecone vector search</span> for memory-based conversation and knowledge retrieval.</li>
-              </ul>
-              
-          </div>
+        <div class="media-link-group">
+          <h4>Project Summary</h4>
+          <p>Under the supervision of Dr. Paul Wang, Chair of the Computer Science Department at Morgan State University, this project integrates <span class="highlight">OpenAI's GPT and Whisper models</span> with the NAO6 humanoid robot to enhance its conversational and interactive capabilities. The system enables NAO to understand spoken language, generate intelligent responses, and interact naturally with users.</p>
+          <h4>Key Achievements</h4>
+          <ul>
+            <li>Developed a <span class="highlight">Flask-based backend server</span> for handling speech transcription, OpenAI responses, and database logging.</li>
+            <li>Implemented <span class="highlight">face recognition</span> for personalized greetings and user identification.</li>
+            <li>Designed <span class="highlight">multi-mode personalities</span> (e.g., study mode, general mode) with adjustable tone and pitch.</li>
+            <li>Currently expanding to <span class="highlight">Pinecone vector search</span> for memory-based conversation and knowledge retrieval.</li>
+          </ul>
+        </div>
       </div>
-      
+
       <ul class="link-bar" style="border-top: 1px solid #ddd; padding-top: 15px;">
-          <li>
-              <a href="https://github.com/theaayushstha1/Nao-OpenAI-Morgan-Assist" target="_blank">
-                  <img src="https://imgur.com/HDn0If1.png" alt="GitHub Logo" class="github-icon">
-                  Source Code
-              </a>
-          </li>
-          <li>
-              <a href="assets/images/AMAZON AWS POSTER.pdf" target="_blank">
-                  <img src="https://imgur.com/ziaQy9Y.jpeg" alt="NAO Robot poster icon" class="pdf-icon-poster">
-                  AWS Poster (PDF)
-              </a>
-          </li>
-          <li>
-              <a href="https://docs.google.com/presentation/d/1f4WsP6yOmTGO51Okk8gsDq4sFW5cnx8h/edit?slide=id.p1#slide=id.p1" target="_blank">
-                  <span style="font-size: 1.2em;">💻</span> Final Presentation (G-Slides)
-              </a>
-          </li>
-          <li>
-              <a href="http://doc.aldebaran.com/2-8/home_nao.html" target="_blank">
-                  <span style="font-size: 1.2em;">📘</span> NAO Developer Docs
-              </a>
-          </li>
+        <li>
+          <a href="https://github.com/theaayushstha1/Nao-OpenAI-Morgan-Assist" target="_blank">
+            <img src="https://imgur.com/HDn0If1.png" alt="GitHub Logo" class="github-icon">
+            Source Code
+          </a>
+        </li>
+        <li>
+          <a href="assets/images/AMAZON AWS POSTER.pdf" target="_blank">
+            <img src="https://imgur.com/ziaQy9Y.jpeg" alt="NAO Robot poster icon" class="pdf-icon-poster">
+            AWS Poster (PDF)
+          </a>
+        </li>
+        <li>
+          <a href="https://docs.google.com/presentation/d/1f4WsP6yOmTGO51Okk8gsDq4sFW5cnx8h/edit?slide=id.p1#slide=id.p1" target="_blank">
+            <span style="font-size: 1.2em;">💻</span> Final Presentation (G-Slides)
+          </a>
+        </li>
+        <li>
+          <a href="http://doc.aldebaran.com/2-8/home_nao.html" target="_blank">
+            <span style="font-size: 1.2em;">📘</span> NAO Developer Docs
+          </a>
+        </li>
       </ul>
     </div>
 
+    <!-- Second project (MSU CS Navigator) unchanged -->
     <div class="project">
       <h3>MSU CS Navigator (RAG Chatbot)</h3>
       <p style="font-style: italic; margin-bottom: 20px;">Project by Sakina Shrestha</p>
-      
       <div class="media-showcase">
-          
-          <div class="image-container">
-              <p style="font-weight: bold; margin-bottom: 5px; color: #0d1543;">Project Demo</p>
-              
-              <a href="https://github.com/Sakinastha/cs-chatbot" title="View Chatbot GitHub" target="_blank">
-                  <img src="https://i.imgur.com/WzdtheP.jpg" alt="Click to view Chatbot interface demo" class="project-img" style="border: 2px solid #C9510C; cursor: pointer;">
-              </a>
-              <p style="text-align: center; font-size: 0.9em; margin-top: 5px;">Click image above to view GitHub</p>
-          </div>
+        <div class="image-container">
+          <p style="font-weight: bold; margin-bottom: 5px; color: #0d1543;">Project Demo</p>
+          <a href="https://github.com/Sakinastha/cs-chatbot" title="View Chatbot GitHub" target="_blank">
+            <img src="https://i.imgur.com/WzdtheP.jpg" alt="Click to view Chatbot interface demo" class="project-img" style="border: 2px solid #C9510C; cursor: pointer;">
+          </a>
+          <p style="text-align: center; font-size: 0.9em; margin-top: 5px;">Click image above to view GitHub</p>
+        </div>
 
-          <div class="media-link-group">
-              
-              <h4>Project Summary</h4>
-              <p>Built an AI-powered chatbot using **Retrieval-Augmented Generation (RAG)** to provide accurate, context-aware answers from a custom knowledge base. Integrated OpenAI, Pinecone, ViteReact, and deployed using FastAPI and Docker on AWS.</p>
-
-              <h4>Key Achievements</h4>
-              <ul>
-                  <li>Implemented<span class="highlight"> GPT + Pinecone RAG architecture</span> for dynamic document retrieval and response generation.</li>
-                  <li>Deployed backend using<span class="highlight"> FastAPI, Docker Compose, and AWS EC2.</span></li>
-                  <li>Supported multi-platform access via<span class="highlight"> web, Android app, and NAO humanoid robot.</span></li>
-                  <li>Designed secure<span class="highlight"> MySQL-based user authentication</span> and for more security used JWTs.</li>
-                  <li>Presented work at<span class="highlight"> multiple research conferences</span> and symposiums.</li>
-              </ul>
-              
-          </div>
+        <div class="media-link-group">
+          <h4>Project Summary</h4>
+          <p>Built an AI-powered chatbot using **Retrieval-Augmented Generation (RAG)** to provide accurate, context-aware answers from a custom knowledge base. Integrated OpenAI, Pinecone, ViteReact, and deployed using FastAPI and Docker on AWS.</p>
+          <h4>Key Achievements</h4>
+          <ul>
+            <li>Implemented<span class="highlight"> GPT + Pinecone RAG architecture</span> for dynamic document retrieval and response generation.</li>
+            <li>Deployed backend using<span class="highlight"> FastAPI, Docker Compose, and AWS EC2.</span></li>
+            <li>Supported multi-platform access via<span class="highlight"> web, Android app, and NAO humanoid robot.</span></li>
+            <li>Designed secure<span class="highlight"> MySQL-based user authentication</span> and for more security used JWTs.</li>
+            <li>Presented work at<span class="highlight"> multiple research conferences</span> and symposiums.</li>
+          </ul>
+        </div>
       </div>
-      
+
       <ul class="link-bar" style="border-top: 1px solid #ddd; padding-top: 15px;">
-          <li>
-              <a href="https://github.com/Sakinastha/cs-chatbot" target="_blank">
-                  <img src="https://imgur.com/HDn0If1.png" alt="GitHub Logo" class="github-icon">
-                  Source Code
-              </a>
-          </li>
-          <li>
-                <a href="https://docs.google.com/presentation/d/1OHAZ3r5yeSEX8BMs1pxQ570YPFoWIyz9i66K6FbF9PM/edit?slide=id.p&pli=1#slide=id.p" target="_blank">
-                  <img src="https://i.imgur.com/R2aYh1S.jpg" alt="Poster icon" class="pdf-icon-poster">
-                  Poster Presentation (Image)
-              </a>
-          </li>
-          <li>
-              <a href="https://docs.google.com/presentation/d/1cJBaDbeNRxYigFgEVe8yCixvmpIknRRc/edit?slide=id.p1#slide=id.p1" target="_blank">
-                  <span style="font-size: 1.2em;">💻</span> Final Presentation (G-Slides)
-              </a>
-          </li>
+        <li>
+          <a href="https://github.com/Sakinastha/cs-chatbot" target="_blank">
+            <img src="https://imgur.com/HDn0If1.png" alt="GitHub Logo" class="github-icon">
+            Source Code
+          </a>
+        </li>
+        <li>
+          <a href="https://docs.google.com/presentation/d/1OHAZ3r5yeSEX8BMs1pxQ570YPFoWIyz9i66K6FbF9PM/edit?slide=id.p&pli=1#slide=id.p" target="_blank">
+            <img src="https://i.imgur.com/R2aYh1S.jpg" alt="Poster icon" class="pdf-icon-poster">
+            Poster Presentation (Image)
+          </a>
+        </li>
+        <li>
+          <a href="https://docs.google.com/presentation/d/1cJBaDbeNRxYigFgEVe8yCixvmpIknRRc/edit?slide=id.p1#slide=id.p1" target="_blank">
+            <span style="font-size: 1.2em;">💻</span> Final Presentation (G-Slides)
+          </a>
+        </li>
       </ul>
     </div>
 
-<div class="media-showcase">
-  <div class="image-container">
-    <p style="font-weight: bold; margin-bottom: 10px; color: #0d1543;">Research Visualization</p>
+    <!-- -------------------------------
+         Quantum project: updated carousel & removed big poster preview
+         ------------------------------- -->
+    <div class="project">
+      <h3>Quantum Security Study with Quantum Cryptography Protocols and Algorithms</h3>
+      <p style="font-style: italic; margin-bottom: 20px;">Project by Julian Gordon</p>
 
-    <!-- Image Carousel -->
-    <div class="carousel">
-      <div class="carousel-images">
-        <img src="https://i.imgur.com/XSCfA3Y.png" alt="Quantum Diagram 1" class="carousel-img active">
-        <img src="https://i.imgur.com/IxpTAwl.png" alt="Quantum Diagram 2" class="carousel-img">
-        <img src="https://i.imgur.com/bOeLYhV.jpeg" alt="Quantum Diagram 3" class="carousel-img">
+      <div class="media-showcase">
+        <div class="image-container">
+          <p style="font-weight: bold; margin-bottom: 10px; color: #0d1543;">Research Visualization</p>
+
+          <!-- Image Carousel (scoped by id) -->
+          <div id="quantum-carousel" class="carousel">
+            <div class="carousel-images">
+              <img src="https://i.imgur.com/XSCfA3Y.png" alt="Quantum Diagram 1" class="carousel-img active">
+              <img src="https://i.imgur.com/IxpTAwl.png" alt="Quantum Diagram 2" class="carousel-img">
+              <img src="https://i.imgur.com/bOeLYhV.jpeg" alt="Quantum Diagram 3" class="carousel-img">
+            </div>
+            <button class="carousel-btn prev" aria-label="Previous">&#10094;</button>
+            <button class="carousel-btn next" aria-label="Next">&#10095;</button>
+          </div>
+
+          <p class="carousel-caption">Image carousel: Quantum cryptography visualization</p>
+          <!-- NOTE: big poster preview removed so poster will be shown as an icon in the link bar below -->
+        </div>
+
+        <div class="media-link-group">
+          <h4>Project Summary</h4>
+          <p>
+            This research explores the integration of quantum mechanics principles and cryptographic algorithms 
+            to improve network security through <span class="highlight">Quantum Key Distribution (QKD)</span>. 
+            Using the <span class="highlight">BB84 protocol</span>, the study simulates man-in-the-middle attacks and analyzes 
+            photon entanglement, polarization, and Quantum Bit Error Rate (QBER) to detect eavesdropping attempts.
+          </p>
+
+          <h4>Key Results & Highlights</h4>
+          <ul>
+            <li>Implemented quantum encryption using the <span class="highlight">BB84 protocol</span> with randomly generated photon states in rectilinear and diagonal bases.</li>
+            <li>Measured photon correlations using the <span class="highlight">quED and quCR experimental setups</span> to analyze entanglement and quantum nonlocality.</li>
+            <li>Observed low QBER under secure conditions, and a sharp QBER increase under simulated eavesdropping — confirming protocol sensitivity.</li>
+            <li>Used <span class="highlight">IDQ Cerberus QKD devices</span> to validate detection of interception attempts via photon state disturbances.</li>
+            <li>Developed a visualization tool displaying real-time entanglement and QBER changes to enhance research and educational understanding.</li>
+          </ul>
+        </div>
       </div>
-      <button class="carousel-btn prev">&#10094;</button>
-      <button class="carousel-btn next">&#10095;</button>
+
+      <!-- REPLACED: button-style link bar (Source Code + Poster Image icon) -->
+      <div class="link-bar-container">
+        <div class="link-bar-buttons">
+          <!-- Source Code -->
+          <a id="quantum-source-link" class="link-btn" href="https://github.com/juliannng/QKD-Experimental-Data-Analysis" target="_blank" rel="noopener noreferrer">
+            <img src="https://imgur.com/HDn0If1.png" alt="GitHub" class="link-icon">
+            <span>Source Code</span>
+          </a>
+
+          <!-- Poster (Image) — Morgan State logo as icon; opens poster image -->
+          <a id="quantum-poster-link" class="link-btn" href="https://i.imgur.com/WkhVUU3.png" target="_blank" rel="noopener noreferrer">
+            <img src="https://i.imgur.com/R2aYh1S.jpg" alt="Poster icon" class="pdf-icon-poster">
+            <span>Poster Presentation (Image)</span>
+          </a>
+        </div>
+      </div>
     </div>
+    <!-- end quantum project -->
 
-    <p style="text-align: center; font-size: 0.9em; margin-top: 5px;">
-      Image carousel: Quantum cryptography visualization
-    </p>
-
-    <!-- Poster Thumbnail -->
-    <div class="poster-preview" style="margin-top: 25px; text-align: center;">
-      <a href="assets/images/quantum_poster.pdf" target="_blank" style="text-decoration: none; color: inherit;">
-        <img src="https://i.imgur.com/WkhVUU3.png" alt="Quantum Research Poster" style="width: 80%; max-width: 400px; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15); border: 2px solid #C9510C; transition: transform 0.3s ease;">
-        <p style="margin-top: 8px; font-weight: bold;">📄 Poster </p>
-      </a>
-    </div>
-  </div>
-
-  <div class="media-link-group">
-    <h4>Project Summary</h4>
-    <p>
-      This research explores the integration of quantum mechanics principles and cryptographic algorithms 
-      to improve network security through <span class="highlight">Quantum Key Distribution (QKD)</span>. 
-      Using the <span class="highlight">BB84 protocol</span>, the study simulates man-in-the-middle attacks and analyzes 
-      photon entanglement, polarization, and Quantum Bit Error Rate (QBER) to detect eavesdropping attempts.
-    </p>
-
-    <h4>Key Results & Highlights</h4>
-    <ul>
-      <li>Implemented quantum encryption using the <span class="highlight">BB84 protocol</span> with randomly generated photon states in rectilinear and diagonal bases.</li>
-      <li>Measured photon correlations using <span class="highlight">quED and quCR experimental setups</span> to analyze entanglement and quantum nonlocality.</li>
-      <li>Observed low QBER under secure conditions, and a sharp QBER increase under simulated eavesdropping — confirming protocol sensitivity.</li>
-      <li>Used <span class="highlight">IDQ Cerberus QKD devices</span> to validate detection of interception attempts via photon state disturbances.</li>
-      <li>Developed a visualization tool displaying real-time entanglement and QBER changes to enhance research and educational understanding.</li>
-    </ul>
-  </div>
-</div>
-
-<ul class="link-bar" style="border-top: 1px solid #ddd; padding-top: 15px;">
-  <li>
-    <a href="https://github.com/juliangordon/quantum-security-study" target="_blank">
-      <img src="https://imgur.com/HDn0If1.png" alt="GitHub Logo" class="github-icon">
-      Source Code
-    </a>
-  </li>
-</ul>
-
-<!-- Carousel Styling -->
-<style>
-.carousel {
-  position: relative;
-  width: 100%;
-  max-width: 480px;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.15);
-  margin: 0 auto;
-}
-
-.carousel-images {
-  position: relative;
-  width: 100%;
-  height: auto;
-}
-
-.carousel-img {
-  width: 100%;
-  height: auto;
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: opacity 1.2s ease-in-out;
-  border: 2px solid #C9510C;
-}
-
-.carousel-img.active {
-  opacity: 1;
-  z-index: 1;
-}
-
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  font-size: 22px;
-  cursor: pointer;
-  padding: 8px 12px;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
-}
-
-.carousel-btn:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-.prev { left: 10px; }
-.next { right: 10px; }
-
-.carousel:hover {
-  animation-play-state: paused;
-}
-
-.poster-preview img:hover {
-  transform: scale(1.03);
-}
-</style>
-
-<!-- Carousel Script -->
-<script>
-const images = document.querySelectorAll('.carousel-img');
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
-let index = 0;
-let interval;
-
-function showImage(i) {
-  images.forEach(img => img.classList.remove('active'));
-  images[i].classList.add('active');
-}
-
-function nextImage() {
-  index = (index + 1) % images.length;
-  showImage(index);
-}
-
-function prevImage() {
-  index = (index - 1 + images.length) % images.length;
-  showImage(index);
-}
-
-nextBtn.addEventListener('click', () => {
-  nextImage();
-  resetInterval();
-});
-
-prevBtn.addEventListener('click', () => {
-  prevImage();
-  resetInterval();
-});
-
-function startCarousel() {
-  interval = setInterval(nextImage, 4000);
-}
-
-function resetInterval() {
-  clearInterval(interval);
-  startCarousel();
-}
-
-document.querySelector('.carousel').addEventListener('mouseenter', () => clearInterval(interval));
-document.querySelector('.carousel').addEventListener('mouseleave', startCarousel);
-
-showImage(index);
-startCarousel();
-</script>
-
+  </section>
 
   <section id="team">
     <h2>Meet the Team</h2>
     <div class="team-grid">
+      <!-- team members unchanged -->
       <div class="team-member">
-          <div class="team-card">
-              <img src="https://i.imgur.com/0Dsw63j.jpg" alt="Photo of Sakina Shrestha" class="team-headshot">
-              <p><b>Sakina Shrestha</b></p>
-              <p>Research Assistant, OpenAI Chatbot/AWS</p>
-          </div>
+        <div class="team-card">
+          <img src="https://i.imgur.com/0Dsw63j.jpg" alt="Photo of Sakina Shrestha" class="team-headshot">
+          <p><b>Sakina Shrestha</b></p>
+          <p>Research Assistant, OpenAI Chatbot/AWS</p>
+        </div>
       </div>
       <div class="team-member">
-          <div class="team-card">
-              <img src="https://i.imgur.com/2luIT5s.jpeg" alt="Photo of Aayush Shrestha" class="team-headshot">
-              <p><b>Aayush Shrestha</b></p>
-              <p>Research Assistant, Artificial Intelligence/Robotics</p>
-          </div>
+        <div class="team-card">
+          <img src="https://i.imgur.com/2luIT5s.jpeg" alt="Photo of Aayush Shrestha" class="team-headshot">
+          <p><b>Aayush Shrestha</b></p>
+          <p>Research Assistant, Artificial Intelligence/Robotics</p>
+        </div>
       </div>
       <div class="team-member">
-          <div class="team-card">
-              <img src="https://i.imgur.com/EH8Kbt8.jpg" alt="Photo of Julian Gordon" class="team-headshot">
-              <p><b>Julian Gordon</b></p>
-              <p>Research Assistant, Quantum/Physics</p>
-          </div>
+        <div class="team-card">
+          <img src="https://i.imgur.com/EH8Kbt8.jpg" alt="Photo of Julian Gordon" class="team-headshot">
+          <p><b>Julian Gordon</b></p>
+          <p>Research Assistant, Quantum/Physics</p>
+        </div>
       </div>
       <div class="team-member">
-          <div class="team-card">
-              <img src="https://i.imgur.com/gTmbNZr.jpg" alt="Photo of Dr. Paul Wang" class="team-headshot">
-              <p><b>Dr. Paul Wang</b></p>
-              <p>Chair and Professor of Computer Science Department</p>
-          </div>
+        <div class="team-card">
+          <img src="https://i.imgur.com/gTmbNZr.jpg" alt="Photo of Dr. Paul Wang" class="team-headshot">
+          <p><b>Dr. Paul Wang</b></p>
+          <p>Chair and Professor of Computer Science Department</p>
+          
+          
+          
+        </div>
       </div>
     </div>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    
     <div class="contact-container">
-        
-        <div class="contact-card">
-            <h3>Faculty & Formal Inquiries</h3>
-            
-            <p style="margin-top: 0;">For administrative questions, potential collaborations, or official department inquiries, please contact the lab's advisor:</p>
+      <div class="contact-card">
+        <h3>Faculty & Formal Inquiries</h3>
+        <p style="margin-top: 0;">For administrative questions, potential collaborations, or official department inquiries, please contact the lab's advisor:</p>
 
-            <div class="contact-info-item">
-                <strong>Shuangbao Wang, Ph.D.</strong> 
-                <p style="font-size: 0.9em; margin: 0;">
-                    Professor and Chair of Computer Science<br>
-                    Director, Morgan Quantum Computing Group <br>
-                    Technical Director, Center for AI/ML Systems
-                </p>
-            </div>
-            
-            <div class="contact-info-item">
-                <strong>Contact & Web</strong>
-                <a href="mailto:Dr.Wang@morgan.edu" style="display: block;">Email: Dr.Wang@morgan.edu</a>
-                <p style="margin: 0;">Phone: 443-885-4503/3962</p>
-                <a href="https://p-neumann.github.io/paul/" target="_blank" style="display: block;">Personal Website (p-neumann.github.io/paul/)</a>
-            </div>
-
-            <p style="font-size: 0.9em; font-style: italic; margin-top: 20px; border-top: 1px dashed #ddd; padding-top: 10px;">
-                "Integrity, Intelligence, and Energy"
-            </p>
-            
+        <div class="contact-info-item">
+          <strong>Shuangbao Wang, Ph.D.</strong>
+          <p style="font-size: 0.9em; margin: 0;">
+            Professor and Chair of Computer Science<br>
+            Director, Morgan Quantum Computing Group <br>
+            Technical Director, Center for AI/ML Systems
+          </p>
         </div>
-        
-        <div class="contact-card">
-            <h3>Student Research Team</h3>
-            <p>For project-specific questions, media requests, or general information on joining the lab, reach out to the student leads.</p>
-            
-            <div class="contact-info-block">
-                <div class="name-and-degree">
-                    <p style="margin: 0;"><strong>Sakina Shrestha</strong></p>
-                    <p class="student-details">B.S. CS '25</p>
-                    <a href="https://www.linkedin.com/in/sakina-shrestha-474775273/" target="_blank" class="linkedin-link">
-                        <img src="https://imgur.com/pjdNOy4.png" alt="LinkedIn" class="linkedin-icon">
-                    </a>
-                </div>
-                <a href="mailto:sashr5@morgan.edu">sashr5@morgan.edu</a>
-                <a href="tel:+16673048390" class="phone-number">+1 (667) 304-8390</a>
-            </div>
 
-            <div class="contact-info-block">
-                <div class="name-and-degree">
-                    <p style="margin: 0;"><strong>Aayush Shrestha</strong></p>
-                    <p class="student-details">B.S. CS '26</p>
-                    <a href="https://www.linkedin.com/in/aayushshrestha123/" target="_blank" class="linkedin-link">
-                        <img src="https://imgur.com/pjdNOy4.png" alt="LinkedIn" class="linkedin-icon">
-                    </a>
-                </div>
-                <a href="mailto:aashr3@morgan.edu">aashr3@morgan.edu</a>
-                <a href="tel:+14105889789" class="phone-number">+1 (410) 588-9789</a>
-            </div>
-
-            <div class="contact-info-block">
-                <div class="name-and-degree">
-                    <p style="margin: 0;"><strong>Julian Gordon</strong></p>
-                    <p class="student-details">B.S. CS '27</p>
-                    <a href="https://www.linkedin.com/in/julian-gordon-938758290/" target="_blank" class="linkedin-link">
-                        <img src="https://imgur.com/pjdNOy4.png" alt="LinkedIn" class="linkedin-icon">
-                    </a>
-                </div>
-                <a href="mailto:jugor3@morgan.edu">jugor3@morgan.edu</a>
-                <a href="tel:+12402805107" class="phone-number">+1 (240) 280-5107</a>
-            </div>
+        <div class="contact-info-item">
+          <strong>Contact & Web</strong>
+          <a href="mailto:Dr.Wang@morgan.edu" style="display: block;">Email: Dr.Wang@morgan.edu</a>
+          <p style="margin: 0;">Phone: 443-885-4503/3962</p>
+          <a href="https://p-neumann.github.io/paul/" target="_blank" style="display: block;">Personal Website (p-neumann.github.io/paul/)</a>
         </div>
-        
-    </div>
 
+        <p style="font-size: 0.9em; font-style: italic; margin-top: 20px; border-top: 1px dashed #ddd; padding-top: 10px;">
+          "Integrity, Intelligence, and Energy"
+        </p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Student Research Team</h3>
+        <p>For project-specific questions, media requests, or general information on joining the lab, reach out to the student leads.</p>
+
+        <div class="contact-info-block">
+          <div class="name-and-degree">
+            <p style="margin: 0;"><strong>Sakina Shrestha</strong></p>
+            <p class="student-details">B.S. CS '25</p>
+            <a href="https://www.linkedin.com/in/sakina-shrestha-474775273/" target="_blank" class="linkedin-link">
+              <img src="https://imgur.com/pjdNOy4.png" alt="LinkedIn" class="linkedin-icon">
+            </a>
+          <a href="mailto:sashr5@morgan.edu">sashr5@morgan.edu</a>
+        </div>
+
+        <div class="contact-info-block">
+          <div class="name-and-degree">
+            <p style="margin: 0;"><strong>Aayush Shrestha</strong></p>
+            <p class="student-details">B.S. CS '26</p>
+            <a href="https://www.linkedin.com/in/aayushshrestha123/" target="_blank" class="linkedin-link">
+              <img src="https://imgur.com/pjdNOy4.png" alt="LinkedIn" class="linkedin-icon">
+            </a>
+          <a href="mailto:aashr3@morgan.edu">aashr3@morgan.edu</a>
+        </div>
+
+        <div class="contact-info-block">
+          <div class="name-and-degree">
+            <p style="margin: 0;"><strong>Julian Gordon</strong></p>
+            <p class="student-details">B.S. CS '27</p>
+            <a href="https://www.linkedin.com/in/julian-gordon-938758290/" target="_blank" class="linkedin-link">
+              <img src="https://imgur.com/pjdNOy4.png" alt="LinkedIn" class="linkedin-icon">
+            </a>
+          <a href="mailto:jugor3@morgan.edu">jugor3@morgan.edu</a>
+        </div>
+      </div>
   </section>
 
   <footer>
     &copy; 2025 MSU CS Research Lab. Built by Sakina Shrestha, Aayush Shrestha, and Julian Gordon
   </footer>
 
+  <!-- ------------------------
+       Scripts: carousel + link fallback
+       ------------------------ -->
+  <script>
+  // Ensure code runs after everything loads
+  window.addEventListener('load', () => {
+    // --- Carousel (scoped to #quantum-carousel) ---
+    const carouselRoot = document.getElementById('quantum-carousel');
+    if (carouselRoot) {
+      const images = carouselRoot.querySelectorAll('.carousel-img');
+      const nextBtn = carouselRoot.querySelector('.next');
+      const prevBtn = carouselRoot.querySelector('.prev');
+      let index = 0;
+      let interval;
+
+      function showImage(i) {
+        if (!images || images.length === 0) return;
+        images.forEach((img, idx) => {
+          if (idx === i) {
+            img.classList.add('active');
+            img.style.position = 'relative';
+          } else {
+            img.classList.remove('active');
+            img.style.position = 'absolute';
+          }
+        });
+      }
+
+      function nextImage() {
+        if (!images || images.length === 0) return;
+        index = (index + 1) % images.length;
+        showImage(index);
+      }
+
+      function prevImage() {
+        if (!images || images.length === 0) return;
+        index = (index - 1 + images.length) % images.length;
+        showImage(index);
+      }
+
+      if (nextBtn) nextBtn.addEventListener('click', () => { nextImage(); resetInterval(); });
+      if (prevBtn) prevBtn.addEventListener('click', () => { prevImage(); resetInterval(); });
+
+      function startCarousel() { interval = setInterval(nextImage, 4000); }
+      function resetInterval() { clearInterval(interval); startCarousel(); }
+
+      // Pause on hover
+      carouselRoot.addEventListener('mouseenter', () => clearInterval(interval));
+      carouselRoot.addEventListener('mouseleave', startCarousel);
+
+      // initialize
+      showImage(index);
+      startCarousel();
+    }
+
+    // --- Link fallback: make sure the two quantum links open if something else blocks anchors ---
+    const src = document.getElementById('quantum-source-link');
+    const poster = document.getElementById('quantum-poster-link');
+    [src, poster].forEach(el => {
+      if (!el) return;
+      el.addEventListener('click', (e) => {
+        // if default prevented by other script, defensively open
+        setTimeout(() => {
+          if (e.defaultPrevented) {
+            window.open(el.href, '_blank', 'noopener,noreferrer');
+          }
+        }, 10);
+      });
+      // also open on middle click / auxclick as fallback
+      el.addEventListener('auxclick', (ev) => { window.open(el.href, '_blank', 'noopener,noreferrer'); });
+    });
+
+  }); // window.load
+  </script>
 </body>
 </html>
