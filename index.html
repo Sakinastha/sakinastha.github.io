@@ -306,57 +306,123 @@ footer {
   <section id="projects">
     <h2>Research Projects</h2>
 
-    <!-- First project (NAO) unchanged -->
-    <div class="project">
-      <h3>NAO–OpenAI Autonomous Assistant</h3>
-      <p style="font-style: italic; margin-bottom: 20px;">Project by Aayush Shrestha</p>
-      <div class="media-showcase">
-        <div class="image-container">
-          <p style="font-weight: bold; margin-bottom: 5px; color: #0d1543;">Video Demo</p>
-          <a href="https://youtu.be/T_3m2RSoC7c" title="Watch NAO Robot Assistant Demo" target="_blank">
-            <img src="https://i.imgur.com/MQ1bXH5.jpg" alt="Click to watch video demo of NAO Robot" class="project-img" style="border: 2px solid #C9510C; cursor: pointer;">
-          </a>
-          <p style="text-align: center; font-size: 0.9em; margin-top: 5px;">Click image above to watch video demo</p>
-        </div>
+<div class="project">
+  <h3>NAO–OpenAI Autonomous Assistant</h3>
+  <p style="font-style: italic; margin-bottom: 20px;">Project by Aayush Shrestha</p>
+  <div class="media-showcase">
 
-        <div class="media-link-group">
-          <h4>Project Summary</h4>
-          <p>Under the supervision of Dr. Paul Wang, Chair of the Computer Science Department at Morgan State University, this project integrates <span class="highlight">OpenAI's GPT and Whisper models</span> with the NAO6 humanoid robot to enhance its conversational and interactive capabilities. The system enables NAO to understand spoken language, generate intelligent responses, and interact naturally with users.</p>
-          <h4>Key Achievements</h4>
-          <ul>
-            <li>Developed a <span class="highlight">Flask-based backend server</span> for handling speech transcription, OpenAI responses, and database logging.</li>
-            <li>Implemented <span class="highlight">face recognition</span> for personalized greetings and user identification.</li>
-            <li>Designed <span class="highlight">multi-mode personalities</span> (e.g., study mode, general mode) with adjustable tone and pitch.</li>
-            <li>Currently expanding to <span class="highlight">Pinecone vector search</span> for memory-based conversation and knowledge retrieval.</li>
-          </ul>
+    <div class="image-container" style="margin-top: 0;">
+      <p style="font-weight: bold; margin-bottom: 10px; color: #0d1543;">Image Carousel (Click to watch video)</p>
+      <div id="aayush-carousel" class="carousel" style="position: relative; max-width: 400px; margin: auto; cursor: pointer;">
+        <div class="carousel-images" style="position: relative; height: 250px;">
+          <img src="https://i.imgur.com/Ob02RsO.jpg" alt="Aayush Image 1" class="carousel-img active" style="width: 100%; height: 100%; object-fit: cover; position: relative;">
+          <img src="https://i.imgur.com/CWJuXme.jpg" alt="Aayush Image 4" class="carousel-img" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; display: none;">
+          <img src="https://i.imgur.com/JDvfwA2.jpg" alt="Aayush Image 5" class="carousel-img" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; display: none;">
         </div>
+        <button class="carousel-btn prev" aria-label="Previous" style="position: absolute; top: 50%; left: 0; transform: translate(0, -50%); background-color: rgba(0,0,0,0.3); border: none; color: white; font-size: 2em; cursor: pointer;">&#10094;</button>
+        <button class="carousel-btn next" aria-label="Next" style="position: absolute; top: 50%; right: 0; transform: translate(0, -50%); background-color: rgba(0,0,0,0.3); border: none; color: white; font-size: 2em; cursor: pointer;">&#10095;</button>
       </div>
+      <p class="carousel-caption" style="text-align: center; font-size: 0.9em; margin-top: 5px;">
+        Click on image to watch video demo
+      </p>
+    </div>
 
-      <ul class="link-bar" style="border-top: 1px solid #ddd; padding-top: 15px;">
-        <li>
-          <a href="https://github.com/theaayushstha1/Nao-OpenAI-Morgan-Assist" target="_blank">
-            <img src="https://imgur.com/HDn0If1.png" alt="GitHub Logo" class="github-icon">
-            Source Code
-          </a>
-        </li>
-        <li>
-          <a href="assets/images/AMAZON AWS POSTER.pdf" target="_blank">
-            <img src="https://imgur.com/ziaQy9Y.jpeg" alt="NAO Robot poster icon" class="pdf-icon-poster">
-            AWS Poster (PDF)
-          </a>
-        </li>
-        <li>
-          <a href="https://docs.google.com/presentation/d/1f4WsP6yOmTGO51Okk8gsDq4sFW5cnx8h/edit?slide=id.p1#slide=id.p1" target="_blank">
-            <span style="font-size: 1.2em;">💻</span> Final Presentation (G-Slides)
-          </a>
-        </li>
-        <li>
-          <a href="http://doc.aldebaran.com/2-8/home_nao.html" target="_blank">
-            <span style="font-size: 1.2em;">📘</span> NAO Developer Docs
-          </a>
-        </li>
+    <div class="media-link-group" style="margin-top: 20px;">
+      <h4>Project Summary</h4>
+      <p>Under the supervision of Dr. Paul Wang, Chair of the Computer Science Department at Morgan State University, this project integrates <span class="highlight">OpenAI's GPT and Whisper models</span> with the NAO6 humanoid robot to enhance its conversational and interactive capabilities. The system enables NAO to understand spoken language, generate intelligent responses, and interact naturally with users.</p>
+      <h4>Key Achievements</h4>
+      <ul>
+        <li>Developed a <span class="highlight">Flask-based backend server</span> for handling speech transcription, OpenAI responses, and database logging.</li>
+        <li>Implemented <span class="highlight">face recognition</span> for personalized greetings and user identification.</li>
+        <li>Designed <span class="highlight">multi-mode personalities</span> (e.g., study mode, general mode) with adjustable tone and pitch.</li>
+        <li>Currently expanding to <span class="highlight">Pinecone vector search</span> for memory-based conversation and knowledge retrieval.</li>
       </ul>
     </div>
+
+  </div>
+
+  <ul class="link-bar" style="border-top: 1px solid #ddd; padding-top: 15px;">
+    <li>
+      <a href="https://github.com/theaayushstha1/Nao-OpenAI-Morgan-Assist" target="_blank">
+        <img src="https://imgur.com/HDn0If1.png" alt="GitHub Logo" class="github-icon">
+        Source Code
+      </a>
+    </li>
+    <li>
+      <a href="https://imgur.com/H8gTF2w" target="_blank">
+        <img src="https://imgur.com/ziaQy9Y.jpeg" alt="NAO Robot poster icon" class="pdf-icon-poster">
+        AWS Poster (PDF)
+      </a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1f4WsP6yOmTGO51Okk8gsDq4sFW5cnx8h/edit?slide=id.p1#slide=id.p1" target="_blank">
+        <span style="font-size: 1.2em;">💻</span> Final Presentation (G-Slides)
+      </a>
+    </li>
+    <li>
+      <a href="http://doc.aldebaran.com/2-8/home_nao.html" target="_blank">
+        <span style="font-size: 1.2em;">📘</span> NAO Developer Docs
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- Carousel Script for Aayush Shrestha -->
+<script>
+  window.addEventListener('load', () => {
+    const carouselRoot = document.getElementById('aayush-carousel');
+    if (!carouselRoot) return;
+
+    const images = carouselRoot.querySelectorAll('.carousel-img');
+    const nextBtn = carouselRoot.querySelector('.next');
+    const prevBtn = carouselRoot.querySelector('.prev');
+    let index = 0;
+
+    function showImage(i) {
+      images.forEach((img, idx) => {
+        if (idx === i) {
+          img.classList.add('active');
+          img.style.display = 'block';
+          img.style.position = 'relative';
+        } else {
+          img.classList.remove('active');
+          img.style.display = 'none';
+          img.style.position = 'absolute';
+        }
+      });
+    }
+
+    function nextImage() {
+      index = (index + 1) % images.length;
+      showImage(index);
+    }
+
+    function prevImage() {
+      index = (index - 1 + images.length) % images.length;
+      showImage(index);
+    }
+
+    if (nextBtn) nextBtn.addEventListener('click', nextImage);
+    if (prevBtn) prevBtn.addEventListener('click', prevImage);
+
+    // Auto slide every 4 seconds
+    let interval = setInterval(nextImage, 2000);
+
+    // Pause on hover
+    carouselRoot.addEventListener('mouseenter', () => clearInterval(interval));
+    carouselRoot.addEventListener('mouseleave', () => interval = setInterval(nextImage, 4000));
+
+    // Click on carousel opens YouTube video in new tab
+    carouselRoot.addEventListener('click', () => {
+      window.open('https://youtu.be/T_3m2RSoC7c?si=5renEtmAAWpbcHqL', '_blank', 'noopener,noreferrer');
+    });
+
+    // Initialize first image shown
+    showImage(index);
+  });
+</script>
+
+
 
     <!-- Second project (MSU CS Navigator) unchanged -->
     <div class="project">
