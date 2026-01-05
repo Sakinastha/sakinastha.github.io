@@ -424,7 +424,7 @@ footer {
 
 
 
-    <!-- Second project (MSU CS Navigator) unchanged -->
+   <!-- Second project (MSU CS Navigator) -->
 <div class="project">
   <h3>MSU CS Navigator (RAG Chatbot)</h3>
   <p style="font-style: italic; margin-bottom: 20px;">Project by Sakina Shrestha</p>
@@ -433,43 +433,61 @@ footer {
     <div class="image-container">
       <p style="font-weight: bold; margin-bottom: 10px; color: #0d1543;">Research visualization</p>
       
-      <!-- Image Carousel (scoped by id) -->
-      <div id="MSUCSNavigator" class="carousel">
-        <div class="carousel-images">
-          <!-- 1. Docker Deployment Workflow (your push/pull diagram) -->
+      <!-- Image Carousel -->
+      <div id="MSUCSNavigator" class="carousel" style="position: relative; max-width: 100%; margin: 0 auto; overflow: hidden;">
+        
+        <div class="carousel-images" style="position: relative; width: 100%; height: 400px; transition: transform 0.5s ease;">
+          <!-- Image 1 – Docker Deployment Workflow -->
           <img src="https://i.ibb.co/VWc1YQB3/docker.jpg"
                alt="Docker Deployment Workflow"
-               class="carousel-img active"
-               loading="lazy"
-               onerror="this.src='https://via.placeholder.com/400x300?text=Image+Failed'; this.onerror=null;">
+               class="carousel-img"
+               style="position: absolute; width: 100%; height: 100%; object-fit: contain; left: 0%; opacity: 1; transition: opacity 0.5s ease;"
+               data-index="0">
 
-          <!-- 2. Chatbot Interaction – MISSING – replace with your actual screenshot URL when uploaded -->
-          <img src="https://via.placeholder.com/400x300?text=Upload+Chatbot+UI+Screenshot+Here"
+          <!-- Image 2 – Chatbot Interaction (upload real one when ready) -->
+          <img src="https://via.placeholder.com/600x400/cccccc/000000?text=Chatbot+UI+Screenshot+(Upload+Here)"
                alt="Chatbot Interaction"
                class="carousel-img"
-               loading="lazy"
-               onerror="this.src='https://via.placeholder.com/400x300?text=Image+Failed'; this.onerror=null;">
+               style="position: absolute; width: 100%; height: 100%; object-fit: contain; left: 100%; opacity: 0; transition: opacity 0.5s ease;"
+               data-index="1">
 
-          <!-- 3. Docker Compose Setup (clean diagram version) -->
+          <!-- Image 3 – Docker Compose Setup -->
           <img src="https://i.ibb.co/v6rDF49Q/docker-compose-diagram.png"
                alt="Docker Compose Setup"
                class="carousel-img"
-               loading="lazy"
-               onerror="this.src='https://via.placeholder.com/400x300?text=Image+Failed'; this.onerror=null;">
+               style="position: absolute; width: 100%; height: 100%; object-fit: contain; left: 200%; opacity: 0; transition: opacity 0.5s ease;"
+               data-index="2">
 
-          <!-- 4. RAG Architecture -->
+          <!-- Image 4 – RAG Architecture -->
           <img src="https://i.ibb.co/kdC5Ycd/How-Rag-works.webp"
                alt="RAG Architecture"
                class="carousel-img"
-               loading="lazy"
-               onerror="this.src='https://via.placeholder.com/400x300?text=Image+Failed'; this.onerror=null;">
+               style="position: absolute; width: 100%; height: 100%; object-fit: contain; left: 300%; opacity: 0; transition: opacity 0.5s ease;"
+               data-index="3">
         </div>
-        
-        <button class="carousel-btn prev" aria-label="Previous">&#10094;</button>
-        <button class="carousel-btn next" aria-label="Next">&#10095;</button>
+
+        <!-- Navigation buttons -->
+        <button class="carousel-btn prev" aria-label="Previous"
+                style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 12px; font-size: 24px; cursor: pointer; z-index: 10;">
+          &#10094;
+        </button>
+        <button class="carousel-btn next" aria-label="Next"
+                style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 12px; font-size: 24px; cursor: pointer; z-index: 10;">
+          &#10095;
+        </button>
+
+        <!-- Optional dots/indicators -->
+        <div class="carousel-dots" style="text-align: center; padding: 10px 0;">
+          <span class="dot" style="height: 12px; width: 12px; margin: 0 6px; background: #bbb; border-radius: 50%; display: inline-block; cursor: pointer;"></span>
+          <span class="dot" style="height: 12px; width: 12px; margin: 0 6px; background: #bbb; border-radius: 50%; display: inline-block; cursor: pointer;"></span>
+          <span class="dot" style="height: 12px; width: 12px; margin: 0 6px; background: #bbb; border-radius: 50%; display: inline-block; cursor: pointer;"></span>
+          <span class="dot" style="height: 12px; width: 12px; margin: 0 6px; background: #bbb; border-radius: 50%; display: inline-block; cursor: pointer;"></span>
+        </div>
       </div>
       
-      <p class="carousel-caption">Image carousel: CS Chatbot Research visualization</p>
+      <p class="carousel-caption" style="text-align: center; margin-top: 10px; font-style: italic;">
+        Image carousel: CS Chatbot Research visualization
+      </p>
     </div>
 
     <div class="media-link-group">
@@ -487,31 +505,54 @@ footer {
     </div>
   </div>
 
-  <ul class="link-bar" style="border-top: 1px solid #ddd; padding-top: 15px;">
-    <li>
-      <a href="https://github.com/Sakinastha/cs-chatbot" target="_blank">
-        <img src="https://imgur.com/HDn0If1.png" alt="GitHub Logo" class="github-icon">
-        Source Code
-      </a>
-    </li>
-    <li>
-      <a href="http://18.214.136.155:3000/" class="btn btn-outline-primary" target="_blank">
-        🌐 Web app
-      </a>
-    </li>
-    <li>
-      <a href="https://docs.google.com/presentation/d/1OHAZ3r5yeSEX8BMs1pxQ570YPFoWIyz9i66K6FbF9PM/edit?slide=id.p&pli=1#slide=id.p" target="_blank">
-        <img src="https://i.imgur.com/R2aYh1S.jpg" alt="Poster icon" class="pdf-icon-poster">
-        Poster Presentation (Image)
-      </a>
-    </li>
-    <li>
-      <a href="https://docs.google.com/presentation/d/1cJBaDbeNRxYigFgEVe8yCixvmpIknRRc/edit?slide=id.p1#slide=id.p1" target="_blank">
-        <span style="font-size: 1.2em;">💻</span> Final Presentation (G-Slides)
-      </a>
-    </li>
+  <!-- Link bar remains the same -->
+  <ul class="link-bar" style="border-top: 1px solid #ddd; padding-top: 15px; list-style: none; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+    <li><a href="https://github.com/Sakinastha/cs-chatbot" target="_blank">Source Code</a></li>
+    <li><a href="http://18.214.136.155:3000/" target="_blank" class="btn btn-outline-primary">🌐 Web app</a></li>
+    <li><a href="https://docs.google.com/presentation/d/1OHAZ3r5yeSEX8BMs1pxQ570YPFoWIyz9i66K6FbF9PM/edit?slide=id.p&pli=1#slide=id.p" target="_blank">Poster Presentation (Image)</a></li>
+    <li><a href="https://docs.google.com/presentation/d/1cJBaDbeNRxYigFgEVe8yCixvmpIknRRc/edit?slide=id.p1#slide=id.p1" target="_blank">Final Presentation (G-Slides)</a></li>
   </ul>
 </div>
+
+<!-- Minimal JavaScript for carousel functionality (place before </body> or in a .js file) -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const container = document.querySelector('#MSUCSNavigator');
+    if (!container) return;
+
+    const images = container.querySelectorAll('.carousel-img');
+    const dots = container.querySelectorAll('.dot');
+    const prevBtn = container.querySelector('.prev');
+    const nextBtn = container.querySelector('.next');
+    
+    let currentIndex = 0;
+    const total = images.length;
+
+    function showSlide(index) {
+      currentIndex = (index + total) % total;
+      
+      images.forEach((img, i) => {
+        img.style.left = (i - currentIndex) * 100 + '%';
+        img.style.opacity = i === currentIndex ? '1' : '0';
+      });
+
+      dots.forEach((dot, i) => {
+        dot.style.background = i === currentIndex ? '#333' : '#bbb';
+      });
+    }
+
+    prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
+    nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
+
+    // Optional: click on dots
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => showSlide(i));
+    });
+
+    // Show first image
+    showSlide(0);
+  });
+</script>
     <!-- -------------------------------
          Quantum project: updated carousel & removed big poster preview
          ------------------------------- -->
