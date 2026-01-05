@@ -424,42 +424,52 @@ footer {
 
 
 
-<!-- Quantum project: updated carousel & removed big poster preview -->
+<!-- MSU CS Navigator (RAG Chatbot) - compact carousel size -->
 <div class="project">
-  <h3>Quantum Security Study with Quantum Cryptography Protocols and Algorithms</h3>
-  <p style="font-style: italic; margin-bottom: 20px;">Project by Julian Gordon</p>
+  <h3>MSU CS Navigator (RAG Chatbot)</h3>
+  <p style="font-style: italic; margin-bottom: 20px;">Project by Sakina Shrestha</p>
   
   <div class="media-showcase">
     <div class="image-container">
-      <p style="font-weight: bold; margin-bottom: 10px; color: #0d1543;">Research Visualization</p>
+      <p style="font-weight: bold; margin-bottom: 10px; color: #0d1543;">Research visualization</p>
       
-      <!-- Compact Carousel (same style/size as MSU CS one) -->
-      <div id="quantum-carousel" class="carousel" 
+      <!-- Compact Carousel - same size as desired -->
+      <div id="MSUCSNavigator" class="carousel" 
            style="position: relative; width: 100%; max-width: 720px; margin: 0 auto 20px; overflow: hidden; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); background: #fafafa;">
 
         <div class="carousel-images" 
              style="position: relative; width: 100%; padding-top: 56.25%; transition: all 0.5s ease;">
 
-          <img src="https://i.imgur.com/XSCfA3Y.png"
-               alt="Quantum Diagram 1"
+          <!-- Docker Deployment Workflow -->
+          <img src="https://i.ibb.co/VWc1YQB3/docker.jpg"
+               alt="Docker Deployment Workflow"
                class="carousel-img"
                style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 1; transition: opacity 0.5s ease;"
                data-index="0">
 
-          <img src="https://i.imgur.com/IxpTAwl.png"
-               alt="Quantum Diagram 2"
+          <!-- Chatbot Interaction (placeholder - replace when you upload real one) -->
+          <img src="https://via.placeholder.com/720x400/eeeeee/555555?text=Chatbot+Interaction+(Upload+Real+Screenshot)"
+               alt="Chatbot Interaction"
                class="carousel-img"
                style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity 0.5s ease;"
                data-index="1">
 
-          <img src="https://i.imgur.com/bOeLYhV.jpeg"
-               alt="Quantum Diagram 3"
+          <!-- Docker Compose Setup -->
+          <img src="https://i.ibb.co/v6rDF49Q/docker-compose-diagram.png"
+               alt="Docker Compose Setup"
                class="carousel-img"
                style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity 0.5s ease;"
                data-index="2">
+
+          <!-- RAG Architecture -->
+          <img src="https://i.ibb.co/kdC5Ycd/How-Rag-works.webp"
+               alt="RAG Architecture"
+               class="carousel-img"
+               style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity 0.5s ease;"
+               data-index="3">
         </div>
 
-        <!-- Arrows – smaller & semi-transparent -->
+        <!-- Arrows -->
         <button class="carousel-btn prev" aria-label="Previous"
                 style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.4); color: white; border: none; border-radius: 50%; width: 38px; height: 38px; font-size: 20px; cursor: pointer; z-index: 10;">
           &#10094;
@@ -469,44 +479,47 @@ footer {
           &#10095;
         </button>
 
-        <!-- Dots – compact & centered -->
+        <!-- Dots -->
         <div class="carousel-dots" 
              style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10;">
           <span class="dot" data-index="0" style="width: 10px; height: 10px; background: #444; border-radius: 50%; cursor: pointer; transition: all 0.3s;"></span>
           <span class="dot" data-index="1" style="width: 10px; height: 10px; background: #aaa; border-radius: 50%; cursor: pointer; transition: all 0.3s;"></span>
           <span class="dot" data-index="2" style="width: 10px; height: 10px; background: #aaa; border-radius: 50%; cursor: pointer; transition: all 0.3s;"></span>
+          <span class="dot" data-index="3" style="width: 10px; height: 10px; background: #aaa; border-radius: 50%; cursor: pointer; transition: all 0.3s;"></span>
         </div>
       </div>
       
       <p class="carousel-caption" style="text-align: center; font-size: 0.9em; color: #666; margin: 0;">
-        Image carousel: Quantum cryptography visualization
+        Image carousel: CS Chatbot Research visualization
       </p>
     </div>
 
     <div class="media-link-group">
       <h4>Project Summary</h4>
-      <p>
-        This research explores the integration of quantum mechanics principles and cryptographic algorithms
-        to improve network security through <span class="highlight">Quantum Key Distribution (QKD)</span>.
-        Using the <span class="highlight">BB84 protocol</span>, the study simulates man-in-the-middle attacks and analyzes photon
-        entanglement, polarization, and Quantum Bit Error Rate (QBER) to detect eavesdropping attempts.
-      </p>
-      <!-- Add Key Results & Highlights or other sections here if needed -->
+      <p>Built an AI-powered chatbot using Retrieval-Augmented Generation (RAG) to provide accurate, context-aware answers from a custom knowledge base. Integrated OpenAI, Pinecone, ViteReact, and deployed using FastAPI and Docker on AWS.</p>
+      <h4>Key Achievements</h4>
+      <ul>
+        <li>Implemented <span class="highlight">GPT + Pinecone RAG architecture</span> for dynamic document retrieval and response generation.</li>
+        <li>Deployed backend using <span class="highlight">FastAPI, Docker Compose, and AWS EC2.</span></li>
+        <li>Supported multi-platform access via <span class="highlight">web, Android app, and NAO humanoid robot.</span></li>
+        <li>Designed secure <span class="highlight">MySQL-based user authentication</span> and used JWTs for added security.</li>
+        <li>Presented work at <span class="highlight">multiple research conferences</span> and symposiums.</li>
+      </ul>
     </div>
   </div>
 
-  <!-- Your link bar – add/update links as needed -->
   <ul class="link-bar" style="border-top: 1px solid #ddd; padding-top: 15px; list-style: none; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
-    <li><a href="YOUR_SOURCE_CODE_LINK" target="_blank">Source Code</a></li>
-    <li><a href="YOUR_POSTER_LINK" target="_blank">Poster Presentation (Image)</a></li>
-    <!-- Add more as needed -->
+    <li><a href="https://github.com/Sakinastha/cs-chatbot" target="_blank">Source Code</a></li>
+    <li><a href="http://18.214.136.155:3000/" target="_blank" class="btn btn-outline-primary">🌐 Web app</a></li>
+    <li><a href="https://docs.google.com/presentation/d/1OHAZ3r5yeSEX8BMs1pxQ570YPFoWIyz9i66K6FbF9PM/edit?slide=id.p&pli=1#slide=id.p" target="_blank">Poster Presentation (Image)</a></li>
+    <li><a href="https://docs.google.com/presentation/d/1cJBaDbeNRxYigFgEVe8yCixvmpIknRRc/edit?slide=id.p1#slide=id.p1" target="_blank">Final Presentation (G-Slides)</a></li>
   </ul>
 </div>
 
-<!-- Carousel JavaScript – same as MSU one (auto every 3s, pause on hover) -->
+<!-- Carousel JavaScript (auto every 3 seconds, pause on hover) -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const container = document.querySelector('#quantum-carousel');
+    const container = document.querySelector('#MSUCSNavigator');
     if (!container) return;
 
     const images = container.querySelectorAll('.carousel-img');
