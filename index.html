@@ -428,74 +428,90 @@ footer {
 <div class="project">
   <h3>MSU CS Navigator (RAG Chatbot)</h3>
   <p style="font-style: italic; margin-bottom: 20px;">Project by Sakina Shrestha</p>
+  
   <div class="media-showcase">
     <div class="image-container">
       <p style="font-weight: bold; margin-bottom: 10px; color: #0d1543;">Research visualization</p>
+      
       <!-- Image Carousel (scoped by id) -->
       <div id="MSUCSNavigator" class="carousel">
-  <div class="carousel-images">
-    <img src="https://raw.githubusercontent.com/Sakinastha/cs-chatbot/main/images/docker-workflow.png"
-         alt="Docker Deployment Workflow" class="carousel-img active" loading="lazy">
+        <div class="carousel-images">
+          <!-- 1. Docker Deployment Workflow (your push/pull diagram) -->
+          <img src="https://i.ibb.co/VWc1YQB3/docker.jpg"
+               alt="Docker Deployment Workflow"
+               class="carousel-img active"
+               loading="lazy"
+               onerror="this.src='https://via.placeholder.com/400x300?text=Image+Failed'; this.onerror=null;">
 
-    <img src="https://raw.githubusercontent.com/Sakinastha/cs-chatbot/main/images/chatbot-interaction.png"
-         alt="Chatbot Interaction" class="carousel-img" loading="lazy">
+          <!-- 2. Chatbot Interaction – MISSING – replace with your actual screenshot URL when uploaded -->
+          <img src="https://via.placeholder.com/400x300?text=Upload+Chatbot+UI+Screenshot+Here"
+               alt="Chatbot Interaction"
+               class="carousel-img"
+               loading="lazy"
+               onerror="this.src='https://via.placeholder.com/400x300?text=Image+Failed'; this.onerror=null;">
 
-    <img src="https://raw.githubusercontent.com/Sakinastha/cs-chatbot/main/images/docker-compose-setup.png"
-         alt="Docker Compose Setup" class="carousel-img" loading="lazy">
+          <!-- 3. Docker Compose Setup (clean diagram version) -->
+          <img src="https://i.ibb.co/v6rDF49Q/docker-compose-diagram.png"
+               alt="Docker Compose Setup"
+               class="carousel-img"
+               loading="lazy"
+               onerror="this.src='https://via.placeholder.com/400x300?text=Image+Failed'; this.onerror=null;">
 
-    <img src="https://raw.githubusercontent.com/Sakinastha/cs-chatbot/main/images/rag-architecture.png"
-         alt="RAG Architecture" class="carousel-img" loading="lazy">
-  </div>
-  <!-- your buttons here -->
-</div>
+          <!-- 4. RAG Architecture -->
+          <img src="https://i.ibb.co/kdC5Ycd/How-Rag-works.webp"
+               alt="RAG Architecture"
+               class="carousel-img"
+               loading="lazy"
+               onerror="this.src='https://via.placeholder.com/400x300?text=Image+Failed'; this.onerror=null;">
+        </div>
+        
         <button class="carousel-btn prev" aria-label="Previous">&#10094;</button>
         <button class="carousel-btn next" aria-label="Next">&#10095;</button>
       </div>
+      
       <p class="carousel-caption">Image carousel: CS Chatbot Research visualization</p>
-      <!-- NOTE: big poster preview removed so poster will be shown as an icon in the link bar below -->
     </div>
+
     <div class="media-link-group">
       <h4>Project Summary</h4>
       <p>Built an AI-powered chatbot using Retrieval-Augmented Generation (RAG) to provide accurate, context-aware answers from a custom knowledge base. Integrated OpenAI, Pinecone, ViteReact, and deployed using FastAPI and Docker on AWS.</p>
+
       <h4>Key Achievements</h4>
       <ul>
-        <li>Implemented<span class="highlight"> GPT + Pinecone RAG architecture</span> for dynamic document retrieval and response generation.</li>
-        <li>Deployed backend using<span class="highlight"> FastAPI, Docker Compose, and AWS EC2.</span></li>
-        <li>Supported multi-platform access via<span class="highlight"> web, Android app, and NAO humanoid robot.</span></li>
-        <li>Designed secure<span class="highlight"> MySQL-based user authentication</span> and for more security used JWTs.</li>
-        <li>Presented work at<span class="highlight"> multiple research conferences</span> and symposiums.</li>
+        <li>Implemented <span class="highlight">GPT + Pinecone RAG architecture</span> for dynamic document retrieval and response generation.</li>
+        <li>Deployed backend using <span class="highlight">FastAPI, Docker Compose, and AWS EC2.</span></li>
+        <li>Supported multi-platform access via <span class="highlight">web, Android app, and NAO humanoid robot.</span></li>
+        <li>Designed secure <span class="highlight">MySQL-based user authentication</span> and used JWTs for added security.</li>
+        <li>Presented work at <span class="highlight">multiple research conferences</span> and symposiums.</li>
       </ul>
     </div>
   </div>
+
+  <ul class="link-bar" style="border-top: 1px solid #ddd; padding-top: 15px;">
+    <li>
+      <a href="https://github.com/Sakinastha/cs-chatbot" target="_blank">
+        <img src="https://imgur.com/HDn0If1.png" alt="GitHub Logo" class="github-icon">
+        Source Code
+      </a>
+    </li>
+    <li>
+      <a href="http://18.214.136.155:3000/" class="btn btn-outline-primary" target="_blank">
+        🌐 Web app
+      </a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1OHAZ3r5yeSEX8BMs1pxQ570YPFoWIyz9i66K6FbF9PM/edit?slide=id.p&pli=1#slide=id.p" target="_blank">
+        <img src="https://i.imgur.com/R2aYh1S.jpg" alt="Poster icon" class="pdf-icon-poster">
+        Poster Presentation (Image)
+      </a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1cJBaDbeNRxYigFgEVe8yCixvmpIknRRc/edit?slide=id.p1#slide=id.p1" target="_blank">
+        <span style="font-size: 1.2em;">💻</span> Final Presentation (G-Slides)
+      </a>
+    </li>
+  </ul>
 </div>
-
-      <ul class="link-bar" style="border-top: 1px solid #ddd; padding-top: 15px;">
-  <li>
-    <a href="https://github.com/Sakinastha/cs-chatbot" target="_blank">
-      <img src="https://imgur.com/HDn0If1.png" alt="GitHub Logo" class="github-icon">
-      Source Code
-    </a>
-  </li>
-  <li>
-    <a href="http://18.214.136.155:3000/" class="btn btn-outline-primary" target="_blank">
-    🌐 Web app
-    </a>
-  </li>
-  <li>
-    <a href="https://docs.google.com/presentation/d/1OHAZ3r5yeSEX8BMs1pxQ570YPFoWIyz9i66K6FbF9PM/edit?slide=id.p&pli=1#slide=id.p" target="_blank">
-      <img src="https://i.imgur.com/R2aYh1S.jpg" alt="Poster icon" class="pdf-icon-poster">
-      Poster Presentation (Image)
-    </a>
-  </li>
-  <li>
-    <a href="https://docs.google.com/presentation/d/1cJBaDbeNRxYigFgEVe8yCixvmpIknRRc/edit?slide=id.p1#slide=id.p1" target="_blank">
-      <span style="font-size: 1.2em;">💻</span> Final Presentation (G-Slides)
-    </a>
-  </li>
-</ul>
-
-    </div>
-
     <!-- -------------------------------
          Quantum project: updated carousel & removed big poster preview
          ------------------------------- -->
